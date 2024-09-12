@@ -9,10 +9,9 @@ interface Props {
     companyNm : string;
     teamNm : string;
     posNm?: string;
-    delay:number;
 }
 
-export const CompCareerBlock = ({startY, startM, endY, endM, companyNm, teamNm, posNm, delay}:Props) =>{
+export const CompCareerBlock = ({startY, startM, endY, endM, companyNm, teamNm, posNm}:Props) =>{
 
     const replaceYears= (str) => {
         const txt3 = str.slice(0, 3);
@@ -27,7 +26,7 @@ export const CompCareerBlock = ({startY, startM, endY, endM, companyNm, teamNm, 
 
     return(
         <div className="career-block">
-            <div className="block-years" data-aos="fade-left" data-aos-delay={delay}>
+            <div className="block-years" data-aos="fade-left">
                 <div>
                     <p className="txt-years">{replaceYears(startY)}</p>
                     <p className="txt-month">{startM}</p>
@@ -38,7 +37,7 @@ export const CompCareerBlock = ({startY, startM, endY, endM, companyNm, teamNm, 
                     <p className="txt-month">{endM}</p>
                 </div>
             </div>
-            <div className="block-company" data-aos="fade-left" data-aos-delay={delay + 200}>
+            <div className="block-company" data-aos="fade-left" data-aos-delay={200}>
                 <p>{companyNm}</p>
                 <div className="info-detail">
                     <p>{teamNm}</p>
