@@ -1,14 +1,18 @@
 import logo from './logo.svg';
 import './css/App.css';
 import 'aos/dist/aos.css'; 
-import {Sample, Header, SectionMain} from './components';
+import {Header, SectionMain, SectionCareer, Footer} from './components';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-      <SectionMain />
-    </div>
+      <div className="App">
+        <SectionMain />
+        <SectionCareer />
+      </div>
+      <Footer />
+    </>
   );
 }
 

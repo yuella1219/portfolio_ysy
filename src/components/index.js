@@ -1,6 +1,13 @@
-export { Header } from './header.tsx';
 // export { Footer } from './Footer';
 // export { Sidebar } from './Sidebar';
 export { Sample } from './sample';
-export { SectionMain } from './section-main.tsx';
-export { VisualCircleDashed } from './images/visual-circle-dashed.tsx'
+
+//images
+export * from './images/index'
+
+// public component
+export * from './public/index'
+
+// section component
+export * from './main/index';
+export * from './career/index';
