@@ -3,3 +3,4 @@ export { Header } from './header.tsx';
 // export { Sidebar } from './Sidebar';
 export { Sample } from './sample';
 export { SectionMain } from './section-main.tsx';
+export { VisualCircleDashed } from './visual-circle-dashed.tsx'
