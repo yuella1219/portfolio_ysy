@@ -32,13 +32,13 @@ button{background:none;border-style:none;}
 
 /* convention */
 .t-high{color:var(--primary)!important}
-div > .wrap{width:1440px;margin:0 auto}
+div > .wrap{width:1440px;margin:0 auto;padding-bottom:220px}
 
 .App{padding-top:80px}
 
 /* section titles */
-.txt-title{margin-bottom:60px}
-.txt-title .wrap{display:flex;align-items:baseline;justify-content:flex-start}
+.txt-title{margin-bottom:62px}
+.txt-title .wrap{display:flex;align-items:baseline;justify-content:flex-start;padding-bottom:0}
 .txt-title p{font-size:32px;font-weight:var(--medium);letter-spacing:-2px}
 .txt-title .txt-dash{position:relative;margin-right:4px}
 .txt-title .txt-dash::before{content:"";display:block;width:100%;height:3px;background:var(--primary)}
@@ -53,13 +53,13 @@ header ul li button::after{content:"";display:block;position:absolute;bottom:-2p
 header ul li button:hover::after{width:100%;}
 
 /* footer */
-footer{width:100%;border-top:1px solid var(--border);background:#fff}
-footer > div{height:80px;display:flex;align-items:center;justify-content:flex-end;margin-right:24px}
-footer p{font-size:14px;color:var(--gray);}
+footer{width:100%;border-top:1px solid var(--border);background:#fff;margin-top:1200px}
+footer > div{height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-right:24px}
+footer p{font-size:14px;color:var(--gray);opacity:0.5}
 
 
 /* section-main */
-.section-main{padding-top:280px;padding-bottom:355px}
+.section-main{padding-top:280px;padding-bottom:110px}
 .section-main .wrap{position:relative}
 .section-main .main-title{font-size:102px;font-weight:var(--bold);letter-spacing:-10px;line-height:1.5}
 .section-main .main-title .t-high{position:relative}
@@ -82,3 +82,12 @@ footer p{font-size:14px;color:var(--gray);}
 }
 
 /* section-career */
+.career-block{display:flex;align-items:flex-start;justify-content:flex-start}
+.career-block:not(:last-child){margin-bottom:24px}
+.career-block .block-years{display:inline-flex;align-items:center;justify-content:flex-start;width:520px;gap:0 22px}
+.career-block .block-years p{font-size:24px;font-weight:var(--medium);letter-spacing:-1px}
+.career-block .line-dash{width:92px;height:1px;background:var(--black)}
+.career-block .block-years div{display:flex;align-items:center;justify-content:flex-start;gap:0 12px}
+.career-block .block-company > p{font-size:16px;font-weight:var(--medium);margin: 6px 0 16px}
+.career-block .block-company .info-detail{display:inline-flex;align-items:center;justify-content:flex-start;margin-left:72px;gap:0 34px}
+.career-block .block-company .info-detail p{font-size:16px;font-weight:var(--regular);color:var(--gray)}
