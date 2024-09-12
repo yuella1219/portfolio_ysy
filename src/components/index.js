@@ -1,5 +1,3 @@
-// export { Footer } from './Footer';
-// export { Sidebar } from './Sidebar';
 export { Sample } from './sample';
 
 //images
@@ -11,3 +9,4 @@ export * from './public/index'
 // section component
 export * from './main/index';
 export * from './career/index';
+export * from './skill/index'

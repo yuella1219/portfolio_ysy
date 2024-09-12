@@ -83,7 +83,7 @@ footer p{font-size:14px;color:var(--gray);opacity:0.5}
 
 /* section-career */
 .career-block{display:flex;align-items:flex-start;justify-content:flex-start}
-.career-block:not(:last-child){margin-bottom:24px}
+.career-block:not(:last-child){margin-bottom:42px}
 .career-block .block-years{display:inline-flex;align-items:center;justify-content:flex-start;width:520px;gap:0 22px}
 .career-block .block-years p{font-size:24px;font-weight:var(--medium);letter-spacing:-1px}
 .career-block .line-dash{width:92px;height:1px;background:var(--black)}
@@ -91,3 +91,14 @@ footer p{font-size:14px;color:var(--gray);opacity:0.5}
 .career-block .block-company > p{font-size:16px;font-weight:var(--medium);margin: 6px 0 16px}
 .career-block .block-company .info-detail{display:inline-flex;align-items:center;justify-content:flex-start;margin-left:72px;gap:0 34px}
 .career-block .block-company .info-detail p{font-size:16px;font-weight:var(--regular);color:var(--gray)}
+
+/* section-skill */
+.section-skill > .wrap{display:grid;grid-template-columns : repeat(3, 1fr)}
+.section-skill .txt-skillNm{font-size:24px;font-weight:var(--medium);letter-spacing:-1px;line-height:1.5}
+.section-skill .comp-graph{margin-bottom:58px}
+.section-skill .comp-graph .cover{display:flex;align-items:center;justify-content:flex-start}
+.section-skill .comp-graph .graph-bg{width:245px;height:22px;background:var(--black);margin-right:12px}
+.section-skill .txt-per{font-size:16px;font-weight:var(--medium);letter-spacing:-1px}
+.section-skill{}
+.section-skill{}
+.section-skill{}
