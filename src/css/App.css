@@ -1,0 +1,38 @@
+@charset "UTF-8";
+@import url(./font.css);
+
+:root{
+    --primary:#FF5A5F;
+    --black:#1E1E20;
+    --gray:#5E5E65;
+    --white:#E6E6EC;
+    --border:#EDEAE3;
+}
+
+* {margin: 0;padding: 0}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, button,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin:0;padding:0;border:0;color:var(--black)}
+ol, ul {list-style: none}
+button{background:none;border-style:none;}
+
+.t-high{color:var(--primary)!important}
+
+/* header */
+.header{width:100%;position:fixed;top:0;left:0;box-sizing:border-box;border-bottom:1px solid var(--border);background:#fff;z-index:100}
+.header > div{width:1440px;height:80px;display:flex;align-items:center;justify-content:space-between;margin:0 auto;}
+.header h1 button{font-size:32px;font-weight:700;letter-spacing:-2px}
+.header ul{display:flex;align-items:center;justify-content:flex-end;gap:24px}
+.header ul li button{font-size:18px;font-weight:400;position:relative;cursor:pointer}
+.header ul li button::after{content:"";display:block;position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:0.2s all}
+.header ul li button:hover::after{width:100%;}
