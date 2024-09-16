@@ -11,32 +11,37 @@ const GaugeSize = styled.div<{ per: number }>`
     width:${(props) => props.per || 0}%;
     height:100%;
     background:#FF5A5F;
-    transition:width 2s;
+    transition:width 3s;
 `
 
 export const CompGraph = ({skill, per} : Props) =>{
     const [animateShow, setAnimateShow] = useState(false);
-    const graphPosY = useRef<HTMLDivElement | null>(null); 
     const [ calPosY, setCalPosY ] = useState(0);
     const [count, setCount] = useState(0);
+    const graphPosY = useRef<HTMLDivElement | null>(null); 
 
     const scrollCount = () =>{
         const scroll = window.scrollY;
-        if(scroll > calPosY - 800) setAnimateShow(true);
-        if(scroll < calPosY - 800) setAnimateShow(false);
+
+        if(scroll > calPosY) setAnimateShow(true);
+        if(scroll < calPosY) setAnimateShow(false);
+        console.log(animateShow)
+        console.log(calPosY)
+        console.log('scrollCount')
+        if(graphPosY.current){
+            setCalPosY(graphPosY.current.offsetTop)
+        }
     }
 
     useEffect(() => {
         window.addEventListener('scroll', scrollCount);
-        if(graphPosY.current){
-            setCalPosY(graphPosY.current.offsetTop)
-        }
-        AOS.init({ duration: 1500 });
+        AOS.init({ duration: 1000 });
       }, []);
 
     useEffect(()=>{
         if(animateShow) setCount(per);
         if(!animateShow) setCount(0);
+        console.log(animateShow)
     }, [animateShow])
 
     return(
