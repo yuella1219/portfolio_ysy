@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 
 export const Sample = () =>{
-
+    
+    // npm run deploy 배포
     useEffect(() => {
         AOS.init({ duration: 1500 });
       }, []);
