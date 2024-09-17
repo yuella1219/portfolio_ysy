@@ -17,7 +17,7 @@ export const CompCareerBlock = ({startY, startM, endY, endM, companyNm, teamNm, 
         const txt3 = str.slice(0, 3);
         const txtPrimary = str.slice(3);
 
-        return <p>{txt3}<span className="t-high">{txtPrimary}</span></p>
+        return <span>{txt3}<span className="t-high">{txtPrimary}</span></span>
     }
 
     useEffect(() => {
