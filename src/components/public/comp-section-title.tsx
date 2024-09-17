@@ -14,7 +14,7 @@ export const CompSectionTitle = ({txtDash, txtNom} :Props) =>{
 
     return(
         <div className="txt-title" data-aos="fade-up">
-            <div className="wrap">
+            <div className="inner">
                 <p className="txt-dash">{txtDash}</p>
                 <p className="txt-normal">{txtNom}</p>
             </div>
