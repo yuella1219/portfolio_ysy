@@ -5,32 +5,24 @@ import { CompGraph } from './comp-graph.tsx'
 
 export const SectionSkill = () =>{
     const getBox = useRef<HTMLDivElement | null>(null);
-    const [getBoxOffset, setGetBoxOffset] = useState(0);
     const [scrollOnOff, setScrollonOff] = useState(false);
 
     const scrollCount = () =>{
-        const scroll = window.scrollY;
-
-        if(scroll > getBoxOffset) setScrollonOff(true);
-        if(scroll < getBoxOffset) setScrollonOff(false);
-    }
-
-    const calBoxOffset = () =>{
-        // if(getBox.current) setGetBoxOffset(getBox.current.getBoundingClientRect().top)
-        // if(getBox.current) setGetBoxOffset(getBox.current.offsetTop)
-        if(getBox.current) setGetBoxOffset(getBox.current.scrollTop)
-            
-        console.log(getBoxOffset)
+        if(getBox.current) {
+            if(getBox.current.classList.contains('aos-animate')){
+                setScrollonOff(true);
+            }else{
+                setScrollonOff(false);
+            }
+        }
     }
 
     useEffect(() => {
         window.addEventListener('scroll', scrollCount);
-        calBoxOffset()
         AOS.init({ duration: 1500 });
       }, []);
 
     useEffect(()=>{
-        console.log('switch ' + scrollOnOff )
     }, [scrollOnOff])
 
     return(

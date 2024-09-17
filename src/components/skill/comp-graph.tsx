@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import AOS from 'aos';
+import CountUp from 'react-countup';
 
 interface Props{
     skill : string;
@@ -8,10 +9,12 @@ interface Props{
     animate : boolean;
 }
 
-const GaugeSize = styled.div.withConfig({
-    shouldForwardProp: (prop) => prop !== 'per', // 'per' prop을 HTML 요소로 전달하지 않음
-  })<{ per: number }>`
-    width:${(props) => props.per || 0}%;
+interface TransientProps{
+    $per : number;
+}
+
+const GaugeSize = styled.div<TransientProps>`
+    width:${(props) => props.$per || 0}%;
     height:100%;
     background:#FF5A5F;
     transition:width 3s;
@@ -35,9 +38,9 @@ export const CompGraph = ({skill, per, animate} : Props) =>{
             <p className="txt-skillNm">{skill}</p>
             <div className="cover">
                 <div className="graph-bg">
-                    <GaugeSize per={count}/>
+                    <GaugeSize $per={count}/>
                 </div>
-                <p className="txt-per">{count}%</p>
+                <CountUp className="txt-per" start={0} end={count} suffix=" %" duration={3}/>                
             </div>
         </div>
     )
