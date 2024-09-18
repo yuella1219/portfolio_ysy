@@ -18,11 +18,13 @@ export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, cl
     // side detail 접기 전달용
     const sideClose = () => {
         setShowSideDetail('');
+        document.querySelector('body')?.classList.remove('unscroll')
     }
     
     useEffect(()=>{
         setShowSideDetail(getProNm);
         setFindDetailValue(experience_data.filter(idx => idx.proNm === getProNm))
+        document.querySelector('body')?.classList.add('unscroll')
     }, [getProNm])
 
     // npm run deploy 배포
@@ -40,7 +42,15 @@ export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, cl
                     )
                 })}
             </div>
-            {showSideDetail.length > 0 ? (<CompProjectDetail data={findDetailValue[0]} closeBtn={sideClose}/>) : null}
+            {showSideDetail.length > 0 ? (
+                <div className="detail-wrap active">
+                    <div className="detail-block">
+                        <CompProjectBlock posNm={findDetailValue[0].posNm || ''} proNm={findDetailValue[0].proNm || ''} delayCt={0} sendNm={getProjectNameFromBlock}/>
+                    </div>
+                    <CompProjectDetail data={findDetailValue[0]} closeBtn={sideClose}/>
+                    <div className="dim" onClick={sideClose}></div>
+                </div>) 
+                : null}
         </div>
     )
 }

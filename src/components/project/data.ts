@@ -70,7 +70,7 @@ export const experience_data = [
         clientNm: `LG HelloRental`,
         member: 2,
         proInter: `가전제품 렌탈 서비스 홈페이지 운영 프로젝트\n탬플릿을 사용하지 않은 자체 제작 100%의 쇼핑몰 형태\n신규 서비스 추가 또는 리뉴얼 작업 위주`,
-        intoTxt: ``,
+        intoTxt: `퍼블리싱(MO/PC반응형)\n데이터 처리를 제외한 프론트 스크립트(swiper, 스크롤 애니메이션 등)\n카테고리 전체 리뉴얼 작업 (50%)\n리뷰 게시판 / 리뷰 작성 화면 작업 (100%)\n스마트 구매가이드 화면 작업 (100%)\n2022 추석 기획전 화면 작업 (100%)`,
     },
     {
         posNm: `Publishing`,

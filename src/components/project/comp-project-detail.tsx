@@ -14,11 +14,11 @@ export const CompProjectDetail = ({data, closeBtn} : Props) =>{
     }
 
     useEffect(() => {
-        AOS.init({ duration: 1500 });
+        AOS.init({ duration: 500 });
       }, []);
 
     return(
-        <div className="project-detail">
+        <div className="project-detail" data-aos="fade-left">
             <div className="inner">
                 <h6 className="pos-nm">{data.posNm}</h6>
                 <div className="tit-wrap">
