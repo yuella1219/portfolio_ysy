@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio_ysy/static/css/main.e587939c.css",
-    "main.js": "/portfolio_ysy/static/js/main.508c0709.js",
+    "main.css": "/portfolio_ysy/static/css/main.b8120d23.css",
+    "main.js": "/portfolio_ysy/static/js/main.9d92bc48.js",
     "static/js/453.c08d0880.chunk.js": "/portfolio_ysy/static/js/453.c08d0880.chunk.js",
     "static/media/SpoqaHanSansNeo-Bold.woff2": "/portfolio_ysy/static/media/SpoqaHanSansNeo-Bold.1db18034ccc384032a4a.woff2",
     "static/media/SpoqaHanSansNeo-Regular.woff2": "/portfolio_ysy/static/media/SpoqaHanSansNeo-Regular.452bf1579d6a73fbaffc.woff2",
@@ -19,12 +19,13 @@
     "static/media/Poppins-Black.ttf": "/portfolio_ysy/static/media/Poppins-Black.d8b850b920a5ef49d752.ttf",
     "static/media/logo.svg": "/portfolio_ysy/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/portfolio_ysy/index.html",
-    "main.e587939c.css.map": "/portfolio_ysy/static/css/main.e587939c.css.map",
-    "main.508c0709.js.map": "/portfolio_ysy/static/js/main.508c0709.js.map",
+    "static/media/ico-close.svg": "/portfolio_ysy/static/media/ico-close.0e57957934c0bc46e14d.svg",
+    "main.b8120d23.css.map": "/portfolio_ysy/static/css/main.b8120d23.css.map",
+    "main.9d92bc48.js.map": "/portfolio_ysy/static/js/main.9d92bc48.js.map",
     "453.c08d0880.chunk.js.map": "/portfolio_ysy/static/js/453.c08d0880.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e587939c.css",
-    "static/js/main.508c0709.js"
+    "static/css/main.b8120d23.css",
+    "static/js/main.9d92bc48.js"
   ]
 }
