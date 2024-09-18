@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import AOS from 'aos';
 import CountUp from 'react-countup';
 
