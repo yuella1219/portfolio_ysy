@@ -6,7 +6,7 @@ import type {ExperienceDataProps} from './data.ts'
 import {experience_data} from './data.ts' 
 import AOS from 'aos';
 
-export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, clientNm, member, proInter, intoTxt} : ExperienceDataProps) =>{
+export const SectionProject = ({posNm, proNm} : ExperienceDataProps) =>{
     const [sideOpen, setSideOpen] = useState(0);
     const [getProNm, setGetProNm] = useState('');
     const [findDetailValue, setFindDetailValue] = useState<ExperienceDataProps[]>([])

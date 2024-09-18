@@ -16,7 +16,14 @@ export const CompProjectDetail = ({data, closeBtn} : Props) =>{
     useEffect(() => {
         AOS.init({ duration: 500 });
       }, []);
-
+    
+    const replace = (str:string) =>{
+        str.split('\n').map((txt)=>{
+            return(<span>{txt}<br/></span>)
+        })
+    }
+    console.log(data.proInter || '')
+    console.log(replace(data.proInter || ''))
     return(
         <div className="project-detail" data-aos="fade-left">
             <div className="inner">
