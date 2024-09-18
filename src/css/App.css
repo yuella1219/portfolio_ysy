@@ -98,7 +98,7 @@ footer p{font-size:14px;color:var(--gray);opacity:0.5}
 .section-skill > .wrap{display:grid;grid-template-columns : repeat(3, 1fr);gap:58px 0}
 .section-skill .txt-skillNm{font-size:24px;font-weight:var(--medium);letter-spacing:-1px;line-height:1.5}
 .section-skill .comp-graph .cover{display:flex;align-items:center;justify-content:flex-start}
-.section-skill .comp-graph .graph-bg{width:245px;height:22px;background:var(--black);margin-right:12px}
+.section-skill .comp-graph .graph-bg{width:245px;height:22px;background:var(--black);margin-right:12px;border-radius:50px}
 .section-skill .txt-per{font-size:16px;font-weight:var(--medium);letter-spacing:-1px}
 
 /* section-project */

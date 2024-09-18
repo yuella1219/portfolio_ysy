@@ -29,7 +29,7 @@ export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, cl
 
     // npm run deploy 배포
     useEffect(() => {
-        AOS.init({ duration: 1500 });
+        AOS.init({ duration: 500 });
       }, []);
 
     return(

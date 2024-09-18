@@ -18,6 +18,7 @@ const GaugeSize = styled.div<TransientProps>`
     height:100%;
     background:#FF5A5F;
     transition:width 3s;
+    border-radius:inherit
 `
 
 export const CompGraph = ({skill, per, animate} : Props) =>{
