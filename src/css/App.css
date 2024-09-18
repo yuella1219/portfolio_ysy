@@ -36,7 +36,8 @@ button{background:none;border-style:none;}
 div > .wrap{width:1440px;margin:0 auto;padding-bottom:220px}
 
 .App{padding-top:80px}
-.unscroll{overflow:hidden}
+.unscroll{overflow:hidden;padding-right:16px}
+.unscroll .header{padding-right:16px}
 
 /* section titles */
 .txt-title{margin-bottom:62px}

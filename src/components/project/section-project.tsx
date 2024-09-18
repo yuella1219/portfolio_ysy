@@ -7,6 +7,7 @@ import {experience_data} from './data.ts'
 import AOS from 'aos';
 
 export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, clientNm, member, proInter, intoTxt} : ExperienceDataProps) =>{
+    const [sideOpen, setSideOpen] = useState(0);
     const [getProNm, setGetProNm] = useState('');
     const [findDetailValue, setFindDetailValue] = useState<ExperienceDataProps[]>([])
     const [showSideDetail, setShowSideDetail] = useState('');
@@ -14,6 +15,8 @@ export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, cl
     // block 전달용
     const getProjectNameFromBlock = (str : string) =>{
         setGetProNm(str)
+        setSideOpen(sideOpen + 1)
+        document.querySelector('body')?.classList.add('unscroll')
     }
     // side detail 접기 전달용
     const sideClose = () => {
@@ -24,8 +27,7 @@ export const SectionProject = ({posNm, proNm, startDt, endDt, useLaun, devOs, cl
     useEffect(()=>{
         setShowSideDetail(getProNm);
         setFindDetailValue(experience_data.filter(idx => idx.proNm === getProNm))
-        document.querySelector('body')?.classList.add('unscroll')
-    }, [getProNm])
+    }, [sideOpen])
 
     // npm run deploy 배포
     useEffect(() => {
