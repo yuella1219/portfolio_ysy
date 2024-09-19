@@ -1,3 +1,4 @@
 export type ToyUrlProps = {
-    url:string;
+    
+    gitUrl:string;
 }
