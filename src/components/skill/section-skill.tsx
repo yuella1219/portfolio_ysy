@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import AOS from 'aos';
-import { CompSectionTitle } from '../public';
-import { CompGraph } from './comp-graph.tsx'
+import { CompSectionTitle, CompGraph } from '../'
 
 export const SectionSkill = () =>{
     const getBox = useRef<HTMLDivElement | null>(null);

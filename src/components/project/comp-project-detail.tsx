@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import type {ExperienceDataProps} from './data.ts' 
+import type {ExperienceDataProps} from '../'
 import AOS from 'aos';
 
 interface Props {

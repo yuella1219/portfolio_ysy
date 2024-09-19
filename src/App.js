@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './css/App.css';
 import 'aos/dist/aos.css'; 
-import {Header, SectionMain, SectionCareer, SectionSkill, SectionProject, Footer} from './components';
+import {Header, SectionMain, SectionCareer, SectionSkill, SectionProject, SectionToy, Footer} from './components';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <SectionCareer />
         <SectionSkill />
         <SectionProject />
+        <SectionToy />
       </div>
       <Footer />
     </>

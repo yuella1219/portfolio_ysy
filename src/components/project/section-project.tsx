@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CompSectionTitle } from '../public'
-import { CompProjectDetail } from './comp-project-detail.tsx'
-import { CompProjectBlock } from './comp-project-block.tsx'
-import type {ExperienceDataProps} from './data.ts' 
-import {experience_data} from './data.ts' 
+import { CompProjectDetail, CompProjectBlock, experience_data } from '../'
+import type {ExperienceDataProps} from '../'
 import AOS from 'aos';
 
 export const SectionProject = ({posNm, proNm} : ExperienceDataProps) =>{

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CompSectionTitle, CompCareerBlock} from '../index'
+import {CompSectionTitle, CompCareerBlock} from '../'
 
 export const SectionCareer = () =>{
     return(

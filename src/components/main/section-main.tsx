@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
-import { VisualCircleDashed } from '../index'
+import { VisualCircleDashed } from '../'
 
 export const SectionMain = () =>{
 

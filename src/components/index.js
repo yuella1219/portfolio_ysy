@@ -11,3 +11,4 @@ export * from './main/index';
 export * from './career/index';
 export * from './skill/index';
 export * from './project/index';
+export * from './toy/index';
