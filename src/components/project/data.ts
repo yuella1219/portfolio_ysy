@@ -34,7 +34,7 @@ export const experience_data = [
         clientNm: `BGF Networks`,
         member: 5,
         proInter: `식권 플랫폼 중계 및 복지 포인트 어플리케이션\n`,
-        intoTxt: `컴포넌트 작업\n - 송금하기\n - 최근 검색한 친구 목록\nadmin 유지보수 및 개선`,
+        intoTxt: `컴포넌트 작업\n - 송금하기\n - 최근 검색한 친구 목록\n\nadmin 유지보수 및 개선`,
     },
     {
         posNm: `Publishing`,
@@ -57,7 +57,7 @@ export const experience_data = [
         devOs: `Android | iOS`,
         clientNm: `신한은행`,
         member: 14,
-        proInter: `신한은행 대환대출 서비스 프로젝트\n기존 신한은행 앱(하이브리드)에 추가되었으며 대출 조건에 따라 상이하게 노출되어야 하는 UI 컴포넌트 작성.`,
+        proInter: `신한은행 대환대출 서비스 프로젝트\n기존 신한은행 앱(하이브리드)에 추가되었으며 대출 조건에 따라 상이하게 노출되어야 하는 UI 컴포넌트 작성`,
         intoTxt: `사용자 화면 퍼블리싱\n데이터 처리를 제외한 프론트 스크립트(swiper, 스크롤 애니메이션 등)\n공통 컴포넌트 가이드 활용\n신규 컴포넌트 가이드 작성`,
     },
     {

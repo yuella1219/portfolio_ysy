@@ -17,13 +17,14 @@ export const CompProjectDetail = ({data, closeBtn} : Props) =>{
         AOS.init({ duration: 500 });
       }, []);
     
-    const replace = (str:string) =>{
-        str.split('\n').map((txt)=>{
-            return(<span>{txt}<br/></span>)
-        })
-    }
-    console.log(data.proInter || '')
-    console.log(replace(data.proInter || ''))
+    const replace = (str: string) => {
+        return str.split('\n').map((txt, index) => (
+            <span key={index}>
+                {txt}
+                <br />
+            </span>
+        ));
+    };
     return(
         <div className="project-detail" data-aos="fade-left">
             <div className="inner">
@@ -59,11 +60,11 @@ export const CompProjectDetail = ({data, closeBtn} : Props) =>{
                 </div>
                 <div className="pro-intro">
                     <p className="txt-tit">프로젝트 소개</p>
-                    <p className="txt-info">{data.proInter}</p>
+                    <p className="txt-info">{replace(data.proInter || '')}</p>
                 </div>
                 <div className="pos-info">
                     <p className="txt-tit">담당 역할</p>
-                    <p className="txt-info">{data.intoTxt}</p>
+                    <p className="txt-info">{replace(data.intoTxt || '')}</p>
                 </div>
                 <button className="btn-close" onClick={btnOnClick}/>
             </div>

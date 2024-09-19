@@ -31,7 +31,7 @@ export const SectionProject = ({posNm, proNm} : ExperienceDataProps) =>{
 
     // npm run deploy 배포
     useEffect(() => {
-        AOS.init({ duration: 500 });
+        AOS.init({ duration: 1000 });
       }, []);
 
     return(
@@ -40,7 +40,7 @@ export const SectionProject = ({posNm, proNm} : ExperienceDataProps) =>{
             <div className="wrap">
                 {experience_data.map((item, index)=>{
                     return(
-                        <CompProjectBlock posNm={item.posNm} proNm={item.proNm} delayCt={index * 100} sendNm={getProjectNameFromBlock} key={index} />
+                        <CompProjectBlock posNm={item.posNm} proNm={item.proNm} delayCt={(index % 4) * 100} sendNm={getProjectNameFromBlock} key={index} />
                     )
                 })}
             </div>
