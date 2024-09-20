@@ -1,5 +1,6 @@
 export type ToyUrlProps = {
     tit:string;
+    gitUrl?:string;
     url:string;
     useLang:string;
     infoTxt:string;
@@ -14,6 +15,7 @@ export const toy_data:ToyUrlProps[] = [
     },
     {
         tit:`다마고치`,
+        gitUrl:`https://github.com/yuella1219/practice_collection/tree/tamagotchi`,
         url:`https://yuella1219.github.io/practice_collection/index.html`,
         useLang:`HTML, CSS, Vanila Javascript`,
         infoTxt:`순수 Vanila Javacript 숙련도 증진을 위해 작업한 습작입니다.\n직접 디자인 한 슬라임 캐릭터를 다양한 상호작용으로 키우는 다마고치형 육성 웹게임 입니다.`,
