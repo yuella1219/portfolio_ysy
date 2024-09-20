@@ -7,6 +7,15 @@ interface Props {
     closeBtn : ()=>void;
 }
 
+export const replace = (str: string) => {
+    return str.split('\n').map((txt, index) => (
+        <span key={index}>
+            {txt}
+            <br />
+        </span>
+    ));
+};
+
 export const CompProjectDetail = ({data, closeBtn} : Props) =>{
     
     const btnOnClick = () =>{
@@ -15,16 +24,8 @@ export const CompProjectDetail = ({data, closeBtn} : Props) =>{
 
     useEffect(() => {
         AOS.init({ duration: 500 });
-      }, []);
+      }, []);    
     
-    const replace = (str: string) => {
-        return str.split('\n').map((txt, index) => (
-            <span key={index}>
-                {txt}
-                <br />
-            </span>
-        ));
-    };
     return(
         <div className="project-detail" data-aos="fade-left">
             <div className="inner">

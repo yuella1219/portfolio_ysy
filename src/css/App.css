@@ -138,8 +138,17 @@ footer p{font-size:14px;color:var(--gray);opacity:0.5}
 .section-project .project-detail span{color:var(--white)}
 .section-project .project-detail .pro-intro .txt-tit,
 .section-project .project-detail .pos-info .txt-tit{font-size:20px;font-weight:var(--regular);margin-bottom:12px}
+.section-project .project-detail .pro-intro .txt-tit::after,
+.section-project .project-detail .pos-info .txt-tit::after{content:"";display:block;height:1px;background:var(--primary);margin-top:6px;opacity:0.8}
+.section-project .project-detail .pro-intro .txt-tit::after{width:118px}
+.section-project .project-detail .pos-info .txt-tit::after{width:82px}
 .section-project .project-detail .pro-intro .txt-info,
 .section-project .project-detail .pos-info .txt-info{font-size:18px;font-weight:var(--light);margin:0 0 12px 12px}
 .section-project .project-detail .pro-intro{margin-bottom:60px}
 .section-project .project-detail .btn-close{display:inline-flex;align-items:center;justify-content:center;position:absolute;top:0;right:0;width:36px;height:36px;background:url(/src/images/icon/ico-close.svg) center center / auto no-repeat;cursor:pointer}
-.section-project{}
+
+.section-toy{}
+.section-toy{}
+.section-toy{}
+.section-toy{}
+.section-toy{}

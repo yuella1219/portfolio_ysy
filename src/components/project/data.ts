@@ -11,7 +11,7 @@ export type ExperienceDataProps = {
     intoTxt? : string;
 }
 
-export const experience_data = [
+export const experience_data: ExperienceDataProps[] = [
     {
         posNm: `Development`,
         proNm: `사내 프로젝트`,

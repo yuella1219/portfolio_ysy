@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
+import {replace} from '../'
+import type {ToyUrlProps} from '../'
 import AOS from 'aos';
 
-export const CompToyBlock = () =>{
+interface Props {
+    data : ToyUrlProps;
+}
+
+export const CompToyBlock = ({ data }:Props) =>{
     
     // npm run deploy 배포
     useEffect(() => {
@@ -9,8 +15,17 @@ export const CompToyBlock = () =>{
       }, []);
 
     return(
-        <div>
-            <p>❤️김창섭의 건드림<br />💛모든걸 바꿔놓아~</p>
+        <div className='toy-block'>
+            <p className="toy-txt">{data.tit}</p>
+            <div className="inner">
+                <div className="txt-wrap">
+                    <div className="info-wrap">
+                        <p className="txt-tit">사용 언어</p>
+                        <p className="txt-info">{data.useLang}</p>
+                    </div>
+                    <p className="info-txt">{replace(data.infoTxt)}</p>
+                </div>
+            </div>
         </div>
     )
 }
