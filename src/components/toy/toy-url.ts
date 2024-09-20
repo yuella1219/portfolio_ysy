@@ -9,7 +9,8 @@ export type ToyUrlProps = {
 export const toy_data:ToyUrlProps[] = [
     {
         tit:`NewJeans 웹 팬게임`,
-        url:``,
+        gitUrl:`https://github.com/yuella1219/new_jeans`,
+        url:`https://yuella1219.github.io/new_jeans`,
         useLang:`HTML, CSS, Vanila Javascript`,
         infoTxt:`순수 Vanila Javacript 숙련도 증진을 위해 작업한 습작입니다.\n2종의 웹게임과 1종의 웹모션 습작으로 이루어져 있습니다.`,
     },
