@@ -1,4 +1,4 @@
-export { Sample } from './sample';
+// export { Sample } from './sample';
 
 //images
 export * from './images/index';
