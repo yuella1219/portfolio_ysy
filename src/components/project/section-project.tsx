@@ -33,12 +33,12 @@ export const SectionProject = ({posNm, proNm} : ExperienceDataProps) =>{
       }, []);
 
     return(
-        <div className="section-project">
+        <div id="src-project" className="section-project">
             <CompSectionTitle txtDash="Project" txtNom="Experience" />
             <div className="wrap">
                 {experience_data.map((item, index)=>{
                     return(
-                        <CompProjectBlock posNm={item.posNm} proNm={item.proNm} delayCt={(index % 4) * 100} sendNm={getProjectNameFromBlock} key={index} />
+                        <CompProjectBlock posNm={item.posNm || ''} proNm={item.proNm || ''} delayCt={(index % 4) * 100} sendNm={getProjectNameFromBlock} key={index} />
                     )
                 })}
             </div>

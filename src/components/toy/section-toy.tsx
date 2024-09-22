@@ -9,7 +9,7 @@ export const SectionToy = () =>{
       }, []);
 
     return(
-        <div className="section-toy">
+        <div id="src-toy" className="section-toy">
             <CompSectionTitle txtDash="Toy" txtNom="Project" />
             <div className="wrap" data-aos="fade-up">
                 {toy_data.map((data, index) =>{

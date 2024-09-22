@@ -25,7 +25,7 @@ export const SectionSkill = () =>{
     }, [scrollOnOff])
 
     return(
-        <div className="section-skill">
+        <div id="src-skill" className="section-skill">
             <CompSectionTitle txtDash="Skill" txtNom="Tree"/>
             <div className="wrap" data-aos="fade-up" ref={getBox}>
                 <CompGraph animate={scrollOnOff} skill="Html" per={95} />
