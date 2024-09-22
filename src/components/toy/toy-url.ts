@@ -25,6 +25,6 @@ export const toy_data:ToyUrlProps[] = [
         tit:`포켓몬스터 카드 리스트`,
         url:``,
         useLang:`React.js`,
-        infoTxt:`React js 숙련도 증진 및 api 연동 연습을 위해 작업한 습작입니다.\n오픈 api인 poke api를 통해 포켓몬 도감 데이터를 호출하고 필요한 데이터를 화면에 마운트 하는 간단한 카드 리스트 페이지 입니다.`,
+        infoTxt:`React js 숙련도 증진 및 api 연동 연습을 위해 작업한 습작입니다.\n오픈 api인 poke api를 통해 포켓몬 도감 데이터를 호출하고 필요한 데이터를 화면에 마운트하는 간단한 카드 리스트 페이지 입니다.`,
     },
 ]

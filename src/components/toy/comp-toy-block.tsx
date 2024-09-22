@@ -53,6 +53,10 @@ export const CompToyBlock = ({ data }:Props) =>{
                             </a>
                         </div>) 
                         : null}
+                    <div className="info-wrap">
+                        <p className="txt-tit">New Window</p>
+                        <a className="txt-info" target="_blank" href={data.url}>👉</a>
+                    </div>
                     <p className="info-txt">{replace(data.infoTxt)}</p>
                 </div>
                 <div className="toy-url">
