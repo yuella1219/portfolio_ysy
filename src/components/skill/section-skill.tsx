@@ -30,9 +30,9 @@ export const SectionSkill = () =>{
             <div className="wrap" data-aos="fade-up" ref={getBox}>
                 <CompGraph animate={scrollOnOff} skill="Html" per={95} />
                 <CompGraph animate={scrollOnOff} skill="Css" per={95} />
-                <CompGraph animate={scrollOnOff} skill="Vanila JavaScript" per={80} />
-                <CompGraph animate={scrollOnOff} skill="jQuery" per={80} />
-                <CompGraph animate={scrollOnOff} skill="React.js" per={65} />
+                <CompGraph animate={scrollOnOff} skill="Vanila JavaScript" per={85} />
+                <CompGraph animate={scrollOnOff} skill="jQuery" per={85} />
+                <CompGraph animate={scrollOnOff} skill="React.js" per={70} />
                 <CompGraph animate={scrollOnOff} skill="React Native" per={55} />
             </div>
         </div>

@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import type {ExperienceDataProps} from '../'
+import React, { useEffect, useState } from 'react';
+import {CompProjectImgZoom, type ExperienceDataProps} from '../'
 import AOS from 'aos';
 
 interface Props {
     data : ExperienceDataProps;
     closeBtn : ()=>void;
+    urlType : (str:string) => void;
+    openZoom : () => void;
 }
 
 export const replace = (str: string) => {
@@ -16,12 +18,22 @@ export const replace = (str: string) => {
     ));
 };
 
-export const CompProjectDetail = ({data, closeBtn} : Props) =>{
+export const CompProjectDetail = ({data, closeBtn, urlType, openZoom} : Props) =>{
+    const [imgZoom, setImgZoom] = useState(false);
+    const [imgUrl, setImgUrl] = useState('');
+
+    const imgClickHandler = (event : React.MouseEvent<HTMLElement, MouseEvent>) =>{
+        setImgZoom(!imgZoom);
+        const _el = event.target as HTMLElement;
+        const _src = String(_el.getAttribute('src'))
+        // setImgUrl(_src)
+        urlType(_src);
+        openZoom();
+    }
     
     const btnOnClick = () =>{
         closeBtn();
     }
-
     useEffect(() => {
         AOS.init({ duration: 500 });
       }, []);    
@@ -66,6 +78,13 @@ export const CompProjectDetail = ({data, closeBtn} : Props) =>{
                 <div className="pos-info">
                     <p className="txt-tit">담당 역할</p>
                     <p className="txt-info">{replace(data.intoTxt || '')}</p>
+                </div>
+                <div className="url-wrap">
+                    {data.url?.map((url, idx)=>(
+                        <button className="btn-url" onClick={imgClickHandler} key={idx}>
+                            <img src={url} alt=""/>
+                        </button>
+                    ))}
                 </div>
                 <button className="btn-close" onClick={btnOnClick}/>
             </div>

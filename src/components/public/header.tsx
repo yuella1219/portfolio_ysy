@@ -41,6 +41,7 @@ export const Header = () =>{
             <div>
                 <h1><button><span className="t-high">N</span>EED WALK</button></h1>
                 <ul className="" ref={navList}>
+                    <li><button aria-controls="src-intro" onClick={goToSection}><span className="t-high">I</span>ntroduce</button></li>
                     <li><button aria-controls="src-career" onClick={goToSection}><span className="t-high">C</span>areer</button></li>
                     <li><button aria-controls="src-skill" onClick={goToSection}><span className="t-high">S</span>kill</button></li>
                     <li><button aria-controls="src-project" onClick={goToSection}><span className="t-high">P</span>roject</button></li>
