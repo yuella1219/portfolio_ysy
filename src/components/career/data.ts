@@ -10,6 +10,15 @@ export type CareerDataProps = {
 
 export const career_data:CareerDataProps[] = [
     {
+        startY : `2024`,
+        startM : `October`,
+        endY : `2025`,
+        endM : `January`,
+        companyNm : `프리랜서`,
+        teamNm : `퍼블리셔팀`,
+        posNm: `메인 퍼블리셔`,
+    },
+    {
         startY : `2022`,
         startM : `July`,
         endY : `2024`,

@@ -16,6 +16,18 @@ export type ExperienceDataProps = {
 
 export const experience_data: ExperienceDataProps[] = [
     {
+        posNm: `Publishing`,
+        proNm: `경남 디지털 혁신 튜브`,
+        startDt: `2024.10`,
+        endDt: `2024.12`,
+        useLaun: `HTML5, CSS3, Javascript, jQuery`,
+        devOs: `PC Web | Mobile Web`,
+        clientNm: `-`,
+        member: 8,
+        proInter: `경남 디지털 혁신튜브 리뉴얼`,
+        intoTxt: `공통 컴포넌트 가이드 작업\nGnb작업\n사용자 화면 퍼블리싱\n사용자 화면 UI/UX 스크립트 작업(60%)`,
+    },
+    {
         posNm: `Development`,
         proNm: `사내 프로젝트`,
         startDt: `2024.01`,

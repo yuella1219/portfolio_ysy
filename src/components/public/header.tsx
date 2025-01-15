@@ -7,10 +7,10 @@ export const Header = () =>{
     const navList = useRef<HTMLUListElement | null>(null)
 
     const goToSection = (event) =>{
+        setScrollEvt(!scrollEvt);
         const _target = event.target.getAttribute('aria-controls');
         if(_target !== null) {
             setScroll(_target)
-            setScrollEvt(!scrollEvt);
         }
     }
 
