@@ -27,4 +27,11 @@ export const toy_data:ToyUrlProps[] = [
     //     useLang:`React.js`,
     //     infoTxt:`React js 숙련도 증진 및 api 연동 연습을 위해 작업한 습작입니다.\n오픈 api인 poke api를 통해 포켓몬 도감 데이터를 호출하고 필요한 데이터를 화면에 마운트하는 간단한 카드 리스트 페이지 입니다.`,
     // },
+    {
+        tit:`마비노기 웹 팬게임 - 걸어서 에린 속으로`,
+        gitUrl:'https://github.com/yuella1219/mabinogi_peddler.git',
+        url:'https://yuella1219.github.io/mabinogi_peddler/',
+        useLang:'HTML, SASS, React.js',
+        infoTxt:'Nexon Open Api를 이용한 게인 프로젝트 입니다. (반응형x)\n 각 npc가 위치한 마을로 이동, 물건의 구매 및 판매, 거리에 따른 차액 이율 등 실제 pc게임 마비노기에 존재하는 교역 컨텐츠를 벤치마킹하였습니다.\n',
+    },
 ]

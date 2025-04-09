@@ -16,6 +16,18 @@ export type ExperienceDataProps = {
 
 export const experience_data: ExperienceDataProps[] = [
     {
+        posNm : 'Publishing',
+        proNm : '예금보험공사 웹접근성 작업',
+        startDt : '2025-03',
+        endDt : '2025-04',
+        useLaun : 'HTML5, CSS3, Javascript, jQuery',
+        devOs : 'PC Web',
+        clientNm : '예금보험공사',
+        member : 4,
+        proInter : '예금보험공사 웹접근성 취득',
+        intoTxt : '작업 사이트 명 - \n ㆍ 예금보험공사\n ㆍ 생활금융아카데미\n ㆍ 예보공매정보\n ㆍ 금융안심포탈\n\n 심사기관 - 한국웹접근성인증평가원\n\n작업내용 - Label 추가, 대체텍스트 추가, 커스텀 모달 포커싱 처리 등 웹접근성 지침에 준하는 작업 수행\n기여도 - 50% \n 특이사항 - PL 업무 수행',
+    },
+    {
         posNm: `Publishing`,
         proNm: `경남 디지털 혁신 튜브`,
         startDt: `2024.10`,
