@@ -77,7 +77,8 @@ export const CompProjectDetail = ({data, closeBtn, urlType, openZoom} : Props) =
                 </div>
                 <div className="pos-info">
                     <p className="txt-tit">담당 역할</p>
-                    <p className="txt-info">{replace(data.intoTxt || '')}</p>
+                    {/* <p className="txt-info">{typeof data.intoTxt === 'string' ? replace(data.intoTxt || '') : data.intoTxt as React.ReactNode}</p> */}
+                    <p className="txt-info">{data.intoTxt}</p>
                 </div>
                 <div className="url-wrap">
                     {data.url?.map((url, idx)=>(
