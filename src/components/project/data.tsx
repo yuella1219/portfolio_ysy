@@ -18,19 +18,36 @@ export type ExperienceDataProps = {
 export const experience_data: ExperienceDataProps[] = [
     {
         posNm : 'Publishing',
-        proNm : '현대백화점 프로젝트',
+        proNm : '키움저축은행 고도화',
+        startDt : '2025-12',
+        endDt : '2026-02',
+        useLaun : 'React',
+        devOs : 'Mobile App',
+        clientNm : '키움저축은행',
+        member : 4,
+        proInter : '키움저축은행 리뉴얼/고도화',
+        intoTxt : 
+            <>
+                키움저축은행 리뉴얼/고도화<br/>
+                <br/>
+                담당파트 - 여신 / 대출관리 / 예적금관리
+            </>,
+    },
+    {
+        posNm : 'Publishing',
+        proNm : '더현대 뉴커머스 프로젝트',
         startDt : '2025-06',
         endDt : '2025-11',
         useLaun : 'React',
-        devOs : 'PC Web',
+        devOs : 'PC Web | Mobile Web | Mobile App',
         clientNm : '현대백화점',
         member : 5,
-        proInter : '현대백화점 웹 프로젝트',
+        proInter : '더현대 뉴커머스 프로젝트',
         intoTxt : 
             <>
-                현대백화점 신규 프로젝트<br/>
+                더현대 온라인 쇼핑몰 고도화 프로젝트<br/>
                 <br/>
-                담당 파트 - 기존 서비스 중인 브랜드 쇼핑물 React로 고도화
+                담당 파트 - 기존 서비스 중인 브랜드 쇼핑물 React로 고도화 (COS, ARKET)
             </>,
     },
     {
