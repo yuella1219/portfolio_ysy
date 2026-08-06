@@ -1,0 +1,209 @@
+@use '../../styles/abstracts/css-vars' as css-vars;
+@use '../../styles/abstracts/functions' as fn;
+@use '../../styles/tokens/layout' as layout;
+@use '../../styles/tokens/spacing' as spacing;
+@use '../../styles/tokens/typography' as typography;
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: layout.layout(header-height);
+  background-color: transparent;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: layout.layout(container-xl);
+  margin-inline: auto;
+  padding-inline: spacing.spacing(14);
+  border-bottom: fn.rem(1px) solid css-vars.token-var(color, border);
+}
+
+.logo {
+  font-size: typography.font-size(2xl);
+  font-weight: typography.font-weight(bold);
+  color: css-vars.token-var(color, foreground);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing.spacing(3);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: css-vars.token-var(color, foreground);
+  cursor: pointer;
+}
+
+.menuIcon {
+  position: relative;
+  display: inline-flex;
+  width: fn.rem(18px);
+  height: fn.rem(12px);
+  align-items: center;
+  justify-content: center;
+}
+
+.menuLine {
+  position: absolute;
+  left: 0;
+  width: fn.rem(18px);
+  height: fn.rem(1px);
+  background-color: css-vars.token-var(color, gray-50);
+
+  &:first-child {
+    top: fn.rem(2px);
+  }
+
+  &:last-child {
+    bottom: fn.rem(2px);
+  }
+}
+
+.closeLine,
+.closeLineReverse {
+  position: absolute;
+  width: fn.rem(18px);
+  height: fn.rem(1px);
+  background-color: css-vars.token-var(color, gray-50);
+}
+
+.closeLine {
+  transform: rotate(-36deg);
+}
+
+.closeLineReverse {
+  transform: rotate(39deg);
+}
+
+.menuLabel {
+  font-size: typography.font-size(base);
+  font-weight: typography.font-weight(light);
+  letter-spacing: 0.02em;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  visibility: hidden;
+  opacity: 0;
+  background-color: css-vars.token-var(color, background);
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  pointer-events: none;
+}
+
+.overlayOpen {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlayContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: spacing.spacing(10);
+  height: 100%;
+  max-width: layout.layout(container-xl);
+  margin-inline: auto;
+  padding-block: layout.layout(header-height) spacing.spacing(10);
+  padding-inline: spacing.spacing(14);
+}
+
+.depth {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 0;
+}
+
+.depthList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: spacing.spacing(9);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.depthItem {
+  margin: 0;
+}
+
+.depthLink {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing.spacing(3);
+  color: css-vars.token-var(color, gray-300);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: css-vars.token-var(color, foreground);
+  }
+}
+
+.depthLabel {
+  font-size: typography.font-size(nav);
+  font-weight: typography.font-weight(bold);
+  line-height: typography.line-height(tight);
+}
+
+.depthIndex {
+  font-size: typography.font-size(base);
+  font-weight: typography.font-weight(regular);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: spacing.spacing(2);
+}
+
+.contactLabel {
+  margin: 0;
+  font-size: typography.font-size(md);
+  font-weight: typography.font-weight(regular);
+  color: css-vars.token-var(color, gray-400);
+}
+
+.contactEmail {
+  font-size: typography.font-size(md);
+  font-weight: typography.font-weight(regular);
+  color: css-vars.token-var(color, gray-50);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: css-vars.token-var(color, foreground);
+  }
+}
+
+@media (min-width: 768px) {
+  .overlayContent {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+  }
+
+  .depth {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .contact {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+  }
+}

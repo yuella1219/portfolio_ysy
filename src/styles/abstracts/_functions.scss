@@ -1,0 +1,12 @@
+@use 'sass:math';
+@use 'config';
+
+/// 단위를 제거하고 숫자만 반환
+@function remove-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+/// px 단위를 가진 값을 rem 단위 값으로 변경하는 데 사용
+@function rem($px, $base: config.$base-font-size) {
+  @return remove-unit(math.div($px, $base)) * 1rem;
+}

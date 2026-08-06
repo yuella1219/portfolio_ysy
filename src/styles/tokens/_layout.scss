@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../abstracts/functions' as fn;
+
+/// Layout size tokens (px → rem)
+$layout: (
+  container-sm: 640,
+  container-md: 768,
+  container-lg: 1024,
+  container-xl: 1280,
+  header-height: 100,
+) !default;
+
+@function layout($key) {
+  @if not map.has-key($layout, $key) {
+    @error 'Unknown layout token "#{$key}". Available: #{map.keys($layout)}';
+  }
+
+  @return fn.rem(map.get($layout, $key) * 1px);
+}

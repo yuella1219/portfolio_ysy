@@ -1,0 +1,7 @@
+@use './base/reset';
+@use './tokens/tokens';
+@use './abstracts/css-vars';
+
+:root {
+  @include css-vars.generate-cssVars(tokens.$tokens);
+}

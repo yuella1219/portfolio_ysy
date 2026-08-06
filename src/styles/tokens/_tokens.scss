@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '../abstracts/functions' as fn;
+@use 'color';
+@use 'spacing';
+@use 'typography';
+@use 'layout';
+
+/// px 토큰 맵 → rem 값 맵 (CSS 변수 출력용)
+@function -to-rem-map($px-map) {
+  $result: ();
+
+  @each $key, $px in $px-map {
+    $value: 0;
+
+    @if $px != 0 {
+      $value: fn.rem($px * 1px);
+    }
+
+    $result: map.merge($result, ($key: $value));
+  }
+
+  @return $result;
+}
+
+/// generate-cssVars에 전달하는 통합 토큰 맵
+$tokens: (
+  color: color.$color,
+  spacing: -to-rem-map(spacing.$spacing),
+  layout: -to-rem-map(layout.$layout),
+  font: (
+    family: typography.$font-family,
+    size: -to-rem-map(typography.$font-size),
+    weight: typography.$font-weight,
+    line-height: typography.$line-height,
+  ),
+) !default;
