@@ -1,0 +1,41 @@
+@use "sass:map";
+@use "sass:list";
+
+:root {
+  --heading-color: var(--color-white);
+
+  color: var(--heading-color);
+  font-size: var(--font-weight-bold);
+}
+
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+
+.white {
+  color: var(--color-white);
+}
+.black {
+  color: var(--color-black);
+}
+.gray100 {
+  color: var(--color-gray-100);
+}
+.gray200 {
+  color: var(--color-gray-200);
+}
+.link {
+  color: var(--color-link);
+}
+
+@for $i from 1 through 5 {
+  .size#{$i} {
+    font-size: var(--heading-#{$i});
+  }
+}

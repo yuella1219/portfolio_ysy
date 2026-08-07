@@ -1,12 +1,23 @@
-@use 'sass:math';
-@use 'config';
+@use "sass:math";
+@use "sass:string";
+@use "sass:list";
+@use "sass:meta";
 
-/// 단위를 제거하고 숫자만 반환
-@function remove-unit($value) {
-  @return math.div($value, $value * 0 + 1);
+// Functions
+
+// Colors
+@function to-rgb($value) {
+  @return red($value), green($value), blue($value);
 }
 
-/// px 단위를 가진 값을 rem 단위 값으로 변경하는 데 사용
-@function rem($px, $base: config.$base-font-size) {
-  @return remove-unit(math.div($px, $base)) * 1rem;
+// Units
+
+// 단위 제거 유틸리티 함수
+@function remove-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+// px 단위를 가진 값을 rem 단위 값으로 변경하는 데 사용
+@function rem($px, $base: 16px) {
+  @return (remove-unit(math.div($px, $base))) * 1rem;
 }

@@ -1,0 +1,7 @@
+---
+description: 디자인 토큰 규칙
+globs: **/*.{scss,css,tsx,ts}
+alwaysApply: false
+---
+
+- 토큰 파일은 `src/styles/abstracts/_tokens.scss` 파일 한 벌로 관리한다.

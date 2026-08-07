@@ -1,0 +1,57 @@
+@use "sass:list";
+@use "sass:meta";
+
+$tokens: (
+  color: (
+    background: #1c1c1c,
+    black: #141414,
+    gray: (
+      100: #7e7e7e,
+      200: #d9d9d9,
+    ),
+    white: #ffffff,
+    link: #9ddeff,
+  ),
+  heading: (
+    1: 2.25rem,
+    2: 2rem,
+    3: 1.75rem,
+    4: 1.5rem,
+    5: 1.375rem,
+  ),
+  text: (
+    xxl: 1.25rem,
+    xl: 1.125rem,
+    l: 1rem,
+    m: 0.875rem,
+    s: 0.75rem,
+  ),
+  font-weight: (
+    bold: 700,
+    medium: 500,
+    regular: 400,
+    light: 300,
+  ),
+);
+
+@function get-cssVar-name($keys) {
+  $name: "--";
+
+  @each $key in $keys {
+    $name: $name + if($name == "--", "", "-") + $key;
+  }
+
+  @return $name;
+}
+
+@mixin generate-cssVars($map: $tokens, $keys: ()) {
+  @each $key, $value in $map {
+    $current-keys: list.append($keys, $key);
+
+    @if meta.type-of($value) == "map" {
+      @include generate-cssVars($value, $current-keys);
+    } @else {
+      #{get-cssVar-name($current-keys)}: #{$value};
+    }
+  }
+}

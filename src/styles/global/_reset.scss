@@ -1,0 +1,146 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box; // 1
+}
+
+// 모든 요소의 포커스링 여백 설정
+*:focus-visible {
+  outline-offset: 2px;
+}
+
+// 기본 여백이 있는 태그에 대한 여백 제거
+:where(p, ol, ul, dl, dd, pre, table, th, td, figure) {
+  margin: 0;
+  padding: 0;
+}
+
+// 1. 부드러운 스크롤 효과
+// 2. Webkit 브라우저의 폰트 렌더링 품질 개선
+// 3. iOS 가로 모드 글꼴 크기 조정 방지
+// 4. iOS 터치 색상을 투명으로 설정
+html {
+  height: 100%;
+  scroll-behavior: smooth; // 1
+  -webkit-font-smoothing: antialiased; // 2
+  -webkit-text-size-adjust: 100%; // 3
+  -webkit-tap-highlight-color: transparent; // 4
+  background: var(--color-background);
+
+  // container-type: inline-size;
+  // container-name: root;
+}
+
+// HTML5 태그에 대한 IE 호환성 설정
+header,
+footer,
+main,
+section,
+article,
+nav,
+aside {
+  display: block;
+}
+
+// 제목 태그의 기본 설정
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[role="heading"] {
+  margin: 0;
+  padding: 0;
+  font-weight: var(--font-weight-bold);
+}
+:where(h1, h2, h3, h4, h5, h6, [role="heading"]):first-child {
+  margin-top: 0;
+}
+
+// 코드 태그의 기본 설정
+pre,
+code,
+kbd,
+samp {
+  font-weight: var(--font-weight-regular);
+}
+
+// 링크 태그의 기본 설정
+a {
+  display: inline-block;
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-position: under;
+  background-color: transparent;
+  &:where([class], [role="button"]) {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// 이미지의 원본사이즈까지 확장되도록 설정
+img {
+  border: 0;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+// fieldset의 기본 설정
+fieldset {
+  margin: 0;
+  padding: 1em;
+}
+legend {
+  color: inherit;
+  display: table;
+  max-width: 100%;
+}
+
+// iframe의 border 제거
+iframe {
+  border: 0;
+}
+
+// textarea의 사이즈 조정 방지
+textarea {
+  resize: none;
+}
+
+// text 요소의 기본 설정
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  position: relative;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled] {
+  cursor: default;
+}
+
+:where(button, input, textarea, select):where([class]) {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: 0;
+  box-shadow: none;
+}
+
+// 숨김 속성
+[hidden] {
+  display: none !important;
+}
+
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}

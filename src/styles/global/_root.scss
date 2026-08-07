@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+/* Root */
+
+:root {
+  @include generate-cssVars($tokens);
+}
