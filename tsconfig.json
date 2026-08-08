@@ -18,14 +18,18 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
       "@components/*": ["./src/components/*"],
+      "@ui/*": ["./src/ui/*"],
       "@views/*": ["./src/views/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"],
-      "@contexts/*": ["./src/contexts/*"]
+      "@contexts/*": ["./src/contexts/*"],
+      "@types/*": ["./src/types/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "include": [

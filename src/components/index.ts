@@ -1,3 +1,3 @@
-export { Heading } from "./Heading/Heading";
-export { Guide } from "./Guide/Guide";
-export { Text } from "./Text/Text";
+export { Header } from "./Header/Header";
+export { Footer } from "./Footer/Footer";
+export { Nav } from "./Nav/Nav";

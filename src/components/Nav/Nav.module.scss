@@ -1,0 +1,88 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: rgba(var(--transparent-background));
+  backdrop-filter: blur(4px);
+  transition: height var(--transition-slow);
+
+  &.open {
+    // height: calc(100vh - 100%);
+    height: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  //   max-width: var(--root-max-width);
+  width: 100%;
+  height: 100%;
+  margin-inline: auto;
+  padding-block: var(--header-height);
+  transition: opacity var(--transition-slow);
+  opacity: 0;
+
+  &.open {
+    transition-delay: 0.3s;
+    opacity: 1;
+  }
+}
+
+.img {
+  max-width: rem(480px);
+  width: 100%;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.list {
+  .item {
+    text-align: right;
+    &:not(:last-child) {
+      margin-bottom: var(--spacing-9);
+    }
+  }
+  .button {
+    font-size: rem(40px);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-100);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+}
+
+.gridGroup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  height: 100%;
+  border-right: var(--border-width-base) solid var(--color-gray-100);
+  .gridItem {
+    display: block;
+    width: rem(1px);
+    height: 100%;
+    background-color: var(--color-gray-100);
+  }
+}

@@ -13,17 +13,26 @@ $tokens: (
     link: #9ddeff,
   ),
   heading: (
+    // 36px
     1: 2.25rem,
+    // 32px
     2: 2rem,
+    // 28px
     3: 1.75rem,
+    // 24px
     4: 1.5rem,
     5: 1.375rem,
   ),
   text: (
+    // 20px
     xxl: 1.25rem,
+    // 18px
     xl: 1.125rem,
+    // 16px
     l: 1rem,
+    // 14px
     m: 0.875rem,
+    // 12px
     s: 0.75rem,
   ),
   font-weight: (
@@ -31,6 +40,39 @@ $tokens: (
     medium: 500,
     regular: 400,
     light: 300,
+  ),
+  spacing: (
+    1: 4px,
+    2: 8px,
+    3: 12px,
+    4: 16px,
+    5: 20px,
+    6: 24px,
+    7: 28px,
+    8: 32px,
+    9: 36px,
+    10: 40px,
+    11: 44px,
+    12: 48px,
+    base-x: 54px,
+  ),
+  font-family: (
+    pretendard: "Pretendard",
+  ),
+  line-height: (
+    base: 1.4,
+  ),
+  border-width: (
+    base: 1px,
+    large: 2px,
+  ),
+  transparent: (
+    background: 20 20 20 / 0.8,
+  ),
+  transition: (
+    slow: 0.5s ease-in-out,
+    default: 0.3s ease-in-out,
+    fast: 0.1s ease-in-out,
   ),
 );
 

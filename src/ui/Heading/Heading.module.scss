@@ -1,11 +1,10 @@
-@use "sass:map";
-@use "sass:list";
+@use "@styles/abstracts" as *;
 
-:root {
+.root {
   --heading-color: var(--color-white);
 
   color: var(--heading-color);
-  font-size: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 .left {

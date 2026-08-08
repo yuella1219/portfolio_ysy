@@ -1,0 +1,13 @@
+@use "@/styles/abstracts/mixins" as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}

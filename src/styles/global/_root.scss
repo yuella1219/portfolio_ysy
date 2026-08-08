@@ -4,4 +4,33 @@
 
 :root {
   @include generate-cssVars($tokens);
+  --root-max-width: #{rem(1300px)};
+}
+
+body {
+  --base-spacing-x: var(--spacing-4);
+
+  padding-inline: var(--base-spacing-x);
+
+  @include tablet {
+    --base-spacing-x: var(--spacing-6);
+  }
+
+  @include laptop {
+    --base-spacing-x: var(--spacing-8);
+  }
+
+  @include desktop {
+    --base-spacing-x: var(--spacing-base-x);
+  }
+}
+
+#root {
+  max-width: var(--root-max-width);
+  margin: 0 auto;
+}
+
+.scroll-lock {
+  overflow: hidden;
+  padding-right: calc(var(--spacing-base-x) + var(--spacing-3));
 }

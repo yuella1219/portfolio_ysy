@@ -1,0 +1,32 @@
+$mobile: 768px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1402px;
+
+// 768px 미만
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+// 768px 이상
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+// 1024px 이상
+@mixin laptop {
+  @media (min-width: $laptop) {
+    @content;
+  }
+}
+
+// 1402px 이상
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}

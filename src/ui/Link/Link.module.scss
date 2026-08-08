@@ -1,0 +1,14 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  display: inline-block;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.underline {
+  color: var(--color-link);
+  text-decoration: underline;
+}

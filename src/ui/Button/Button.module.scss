@@ -1,0 +1,87 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  --button-color: inherit;
+  --button-font-size: inherit;
+  --button-padding: inherit;
+  --button-border: inherit;
+  --button-background-color: inherit;
+  --button-font-weight: inherit;
+
+  color: var(--button-color, var(--color-gray-100));
+  font-size: var(--button-font-size, var(--text-m));
+  padding: var(--button-padding, var(--spacing-2));
+  border: var(--button-border);
+  background-color: var(--button-background-color, transparent);
+  font-weight: var(--button-font-weight, var(--font-weight-regular));
+}
+
+.default {
+  --button-color: var(--color-gray-200);
+  --button-background-color: transparent;
+  --button-border: var(--border-width-base) solid var(--color-gray-200);
+  --button-font-weight: var(--font-weight-bold);
+
+  position: relative;
+  transition: all var(--transition-fast);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all var(--transition-default);
+    z-index: -1;
+    background-color: var(--color-gray-200);
+  }
+
+  &:hover {
+    --button-color: var(--color-background);
+    &::before {
+      width: 100%;
+    }
+  }
+
+  &[disabled] {
+    --button-color: var(--color-gray-200);
+    opacity: 0.5;
+    cursor: not-allowed;
+    &::before {
+      content: none;
+    }
+  }
+}
+.outline {
+}
+.ghost {
+  --button-background-color: transparent;
+  --button-border: transparent solid var(--color-gray-100);
+  --button-color: var(--color-gray-100);
+  --button-font-weight: var(--font-weight-regular);
+
+  &:hover {
+    --button-font-weight: var(--font-weight-bold);
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+.link {
+}
+
+.small {
+  --button-font-size: var(--text-m);
+  --button-padding: var(--spacing-2);
+}
+.medium {
+  --button-font-size: var(--text-l);
+  --button-padding: var(--spacing-3);
+}
+.large {
+  --button-font-size: var(--text-xxl);
+  --button-padding: var(--spacing-4);
+}

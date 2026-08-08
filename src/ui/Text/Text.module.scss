@@ -1,4 +1,6 @@
-:root {
+@use "@styles/abstracts" as *;
+
+.root {
   --text-color: inherit;
   color: var(--text-color);
 }
@@ -43,4 +45,17 @@
 }
 .sizes {
   font-size: var(--text-s);
+}
+
+.light {
+  font-weight: var(--font-weight-light);
+}
+.regular {
+  font-weight: var(--font-weight-regular);
+}
+.medium {
+  font-weight: var(--font-weight-medium);
+}
+.bold {
+  font-weight: var(--font-weight-bold);
 }
