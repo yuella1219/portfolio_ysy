@@ -4,3 +4,5 @@ export { Text } from "./Text/Text";
 export { Button } from "./Button/Button";
 export { TitleArea } from "./TitleArea/TitleArea";
 export { Link } from "./Link/Link";
+export { Modal } from "./Modal/Modal";
+export { Popover } from "./Popover/Popover";

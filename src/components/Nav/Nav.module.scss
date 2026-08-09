@@ -1,20 +1,25 @@
 @use "@styles/abstracts" as *;
 
+$nav-scroll-padding: calc(var(--spacing-base-x) + var(--spacing-4));
+
 .root {
   position: absolute;
-  top: 100%;
+  top: -0;
   left: 0;
   z-index: 100;
   width: 100%;
   height: 0;
   overflow: hidden;
   background-color: rgba(var(--transparent-background));
-  backdrop-filter: blur(4px);
-  transition: height var(--transition-slow);
+  backdrop-filter: blur(8px);
+  transition: height var(--transition-nav);
 
   &.open {
-    // height: calc(100vh - 100%);
     height: 100%;
+
+    .fakeHeader {
+      padding-right: $nav-scroll-padding;
+    }
   }
 }
 
@@ -23,15 +28,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-content: space-between;
-  //   max-width: var(--root-max-width);
   width: 100%;
-  height: 100%;
   margin-inline: auto;
-  padding-block: var(--header-height);
-  transition: opacity var(--transition-slow);
+  padding-inline: var(--base-spacing-x);
+  transition: opacity var(--transition-nav);
   opacity: 0;
 
   &.open {
+    padding-right: $nav-scroll-padding;
     transition-delay: 0.3s;
     opacity: 1;
   }
@@ -43,12 +47,18 @@
 }
 
 .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  --top-padding-y: var(--spacing-8);
+
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-block: var(--top-padding-y);
 }
 
 .list {
+  grid-column: 4 / 5;
   .item {
     text-align: right;
     &:not(:last-child) {
@@ -76,13 +86,74 @@
   z-index: -1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: 100%;
+  width: calc(100% - var(--base-spacing-x) * 2);
   height: 100%;
   border-right: var(--border-width-base) solid var(--color-gray-100);
+  margin-inline: var(--base-spacing-x);
+  opacity: 0.5;
+
+  &.open {
+    width: calc(100% - var(--base-spacing-x) - $nav-scroll-padding);
+    margin-right: $nav-scroll-padding;
+  }
+
   .gridItem {
     display: block;
     width: rem(1px);
     height: 100%;
     background-color: var(--color-gray-100);
+  }
+}
+
+.fakeHeader {
+  --header-height: #{rem(32px)};
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  background-color: transparent;
+  padding-inline: var(--base-spacing-x);
+
+  .closeBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+  }
+  .icon {
+    display: inline-block;
+    width: rem(16px);
+    height: rem(16px);
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: rem(1px);
+      background-color: var(--color-gray-100);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+@include laptop {
+  .top {
+    --top-padding-y: #{rem(80px)};
+  }
+
+  .fakeHeader {
+    --header-height: #{rem(64px)};
   }
 }

@@ -1,0 +1,18 @@
+@use "@styles/abstracts" as *;
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.popover {
+  position: absolute;
+  z-index: 1;
+  pointer-events: auto;
+  min-width: rem(200px);
+  max-width: min(90vw, rem(320px));
+  padding: var(--spacing-4);
+  background-color: var(--color-background);
+  border: var(--border-width-base) solid var(--color-gray-100);
+}

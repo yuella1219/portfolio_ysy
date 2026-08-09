@@ -1,5 +1,7 @@
-import React from "react";
-import { Heading, Text, Button, TitleArea } from "@ui/index";
+"use client";
+
+import React, { useRef, useState } from "react";
+import { Heading, Text, Button, TitleArea, Modal, Popover } from "@ui/index";
 
 const ColorPalette = ({ color }: { color: string }) => {
   return (
@@ -17,8 +19,65 @@ const ColorPalette = ({ color }: { color: string }) => {
 };
 
 export const Guide = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const popoverTriggerRef = useRef<HTMLDivElement>(null);
+  const [isPopoverOpen2, setIsPopoverOpen2] = useState(false);
+
   return (
     <div>
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+        <Button onClick={() => setIsOpen(!isOpen)}>Modal</Button>
+        <div ref={popoverTriggerRef} style={{ display: "inline-flex" }}>
+          <Button onClick={() => setIsPopoverOpen(true)}>Popover</Button>
+          <Button onClick={() => setIsPopoverOpen2(true)}>Popover 2</Button>
+        </div>
+        {isOpen && (
+          <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <Button
+              variant="ghost"
+              size="medium"
+              onClick={() => setIsOpen(false)}
+            >
+              close
+            </Button>
+            <ColorPalette color="link" />
+          </Modal>
+        )}
+        {isPopoverOpen && (
+          <Popover
+            isOpen={isPopoverOpen}
+            onClose={() => setIsPopoverOpen(false)}
+            anchorRef={popoverTriggerRef}
+          >
+            <>
+              <Text size="m" color="gray200">
+                Popover sample
+              </Text>
+              <Text size="s" color="gray100">
+                스크롤하면 닫힙니다.
+              </Text>
+            </>
+          </Popover>
+        )}
+
+        {isPopoverOpen2 && (
+          <Popover
+            isOpen={isPopoverOpen2}
+            onClose={() => setIsPopoverOpen2(false)}
+            anchorRef={popoverTriggerRef}
+          >
+            <>
+              <Text size="m" color="gray200">
+                Popover sample 22
+              </Text>
+              <Text size="s" color="gray100">
+                스크롤하면 닫힙니다.
+              </Text>
+            </>
+          </Popover>
+        )}
+      </div>
       <div>
         <Heading size="1">Heading 1</Heading>
         <Heading size="2">Heading 2</Heading>

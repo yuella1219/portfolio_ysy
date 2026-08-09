@@ -11,3 +11,9 @@ export function setBodyScrollLock(lock: boolean) {
     document.body.classList.remove(LOCK_CLASS);
   }
 }
+
+export {
+  getOverlayViewportRect,
+  getAnchorOverlayPosition,
+  getAnchorDocumentPosition,
+} from "./overlayPosition";
