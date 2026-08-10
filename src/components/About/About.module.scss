@@ -1,0 +1,19 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  --about-padding-block: #{rem(60px)};
+
+  padding-block: var(--about-padding-block);
+}
+
+.container {
+}
+
+.title {
+}
+
+@include laptop {
+  .root {
+    --about-padding-block: #{rem(120px)};
+  }
+}

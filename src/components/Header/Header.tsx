@@ -5,8 +5,10 @@ import { Heading, Button, Link } from "@ui/index";
 import { Nav } from "@components/Nav/Nav";
 import { useState } from "react";
 import { setBodyScrollLock } from "@utils/index";
+import { useDeviceSize } from "@hooks/index";
 
 export function Header() {
+  const { isLaptop } = useDeviceSize();
   const [isOpen, setIsOpen] = useState(false);
   const NAV_DELAY = 800;
 
@@ -21,7 +23,9 @@ export function Header() {
     <header className={styles.root}>
       <h1>
         <Heading size="3" as="strong">
-          <Link href="/">Forward Through Craft</Link>
+          <Link href="/">
+            {!isLaptop ? "Forward" : "Forward Through Craft"}
+          </Link>
         </Heading>
       </h1>
       <Button

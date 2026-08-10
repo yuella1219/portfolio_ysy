@@ -32,8 +32,10 @@ body {
 }
 
 .scroll-lock {
-  overflow: hidden;
-  padding-right: calc(var(--spacing-base-x) + var(--spacing-4));
+  @include laptop {
+    overflow: hidden;
+    padding-right: calc(var(--spacing-base-x) + var(--spacing-4));
+  }
 }
 
 #portal-root {

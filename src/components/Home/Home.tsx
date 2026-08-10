@@ -14,6 +14,7 @@ export function Home() {
             text={["FORWARD", "THROUGH", "CRAFTING"]}
             speed={80}
             align={["left", "right", "left"]}
+            startDelay={3000}
           />
         </Heading>
 

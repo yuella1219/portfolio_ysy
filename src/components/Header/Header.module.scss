@@ -1,7 +1,7 @@
 @use "@styles/abstracts" as *;
 
 .root {
-  --header-height: #{rem(32px)};
+  --header-height: #{rem(42px)};
 
   display: flex;
   justify-content: space-between;
@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--spacing-2);
+    padding-inline: 0;
   }
 
   .icon {

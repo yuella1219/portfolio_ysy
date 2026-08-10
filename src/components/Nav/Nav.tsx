@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./Nav.module.scss";
-import { usePortal, useModalOverlay, useScrollLock } from "@hooks/index";
+import { usePortal, useModalOverlay, useDeviceSize } from "@hooks/index";
 import { Button, Link, Text, Heading } from "@ui/index";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
@@ -39,6 +39,7 @@ const NAV_LIST = [
 export function Nav({ isOpen, setIsOpen }: NavProps) {
   const portalRoot = usePortal("portal-root");
   const [isShow, setIsShow] = useState(false);
+  const { isLaptop } = useDeviceSize();
   const router = useRouter();
 
   const handleClose = () => {
@@ -67,7 +68,9 @@ export function Nav({ isOpen, setIsOpen }: NavProps) {
       <div className={clsx(styles.root, isShow && styles.open)}>
         <div className={styles.fakeHeader}>
           <Heading size="3" as="strong">
-            <Link href="/">Forward Through Craft</Link>
+            <Link href="/">
+              {!isLaptop ? "Forward" : "Forward Through Craft"}
+            </Link>
           </Heading>
           <Button
             variant="ghost"
@@ -83,7 +86,9 @@ export function Nav({ isOpen, setIsOpen }: NavProps) {
         </div>
         <nav className={clsx(styles.container, isShow && styles.open)}>
           <div className={styles.top}>
-            <img src="/img/nav-img.png" className={styles.img} alt="" />
+            {isLaptop && (
+              <img src="/img/nav-img.png" className={styles.img} alt="" />
+            )}
             <ul className={styles.list}>
               {NAV_LIST.map((item, idx) => (
                 <li className={styles.item} key={`${item.href}-${idx}`}>
@@ -124,8 +129,12 @@ export function Nav({ isOpen, setIsOpen }: NavProps) {
         <div className={clsx(styles.gridGroup, isShow && styles.open)}>
           <span className={styles.gridItem} />
           <span className={styles.gridItem} />
-          <span className={styles.gridItem} />
-          <span className={styles.gridItem} />
+          {isLaptop && (
+            <>
+              <span className={styles.gridItem} />
+              <span className={styles.gridItem} />
+            </>
+          )}
         </div>
       </div>
     </div>,

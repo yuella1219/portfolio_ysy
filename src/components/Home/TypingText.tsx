@@ -11,18 +11,23 @@ interface TypingTextProps {
   speed?: number;
   /** 정렬 */
   align?: alignProps[];
+  /** 텍스트 타이핑 시작 전 지연(ms) */
+  startDelay?: number;
 }
 
-type TypingPhase = "ready" | "typing" | "done";
+type TypingPhase = "waiting" | "ready" | "typing" | "done";
 
 export const TypingText = ({
   text,
   speed = 80,
   align = ["left"] as alignProps[],
+  startDelay = 0,
 }: TypingTextProps) => {
   const textArray = useMemo(() => (Array.isArray(text) ? text : null), [text]);
 
-  const [phase, setPhase] = useState<TypingPhase>("ready");
+  const [phase, setPhase] = useState<TypingPhase>(() =>
+    startDelay > 0 ? "waiting" : "ready",
+  );
   const [currentTxt, setCurrentTxt] = useState("");
   const [currentIdx, setCurrentIdx] = useState(0);
   const [idxArr, setIdxArr] = useState(0);
@@ -48,6 +53,16 @@ export const TypingText = ({
   }, [currentIdx, currentTxt, speed, textArray, idxArr]);
 
   useEffect(() => {
+    if (phase !== "waiting") return;
+
+    const timer = setTimeout(() => {
+      setPhase("ready");
+    }, startDelay);
+
+    return () => clearTimeout(timer);
+  }, [phase, startDelay]);
+
+  useEffect(() => {
     if (phase !== "ready") return;
 
     const nextTxt = Array.isArray(text) ? (text[idxArr] ?? "") : text;
@@ -61,51 +76,57 @@ export const TypingText = ({
     return handleTyping();
   }, [phase, currentIdx, currentTxt, handleTyping]);
 
-  const showCursor = phase === "typing" || phase === "done";
+  const renderLine = (
+    item: string,
+    index: number,
+    displayText: string,
+    showLineCursor: boolean,
+  ) => (
+    <span
+      key={index}
+      className={clsx(styles.typingLine, styles[align[index] ?? align[0]])}
+    >
+      <span className={styles.typingSlot}>
+        <span className={styles.ghost} aria-hidden="true">
+          {item}
+        </span>
+        <span className={styles.typingContent}>
+          {displayText}
+          {showLineCursor && (
+            <span className={styles.cursor} aria-hidden="true" />
+          )}
+        </span>
+      </span>
+    </span>
+  );
 
   const renderSequence = () =>
     textArray?.map((item, index) => {
-      const alignClass = styles[align[index] ?? align[0]];
       const isCompleted = index < idxArr || phase === "done";
-      const isCurrent = index === idxArr && phase !== "ready";
+      const isCurrent = index === idxArr && phase === "typing";
+      const isActive = index === idxArr && phase !== "done";
+      const isLast = index === textArray.length - 1;
+      const displayText = isCompleted
+        ? item
+        : isCurrent
+          ? item.slice(0, currentIdx)
+          : "";
+      const showLineCursor = isActive || (phase === "done" && isLast);
 
-      if (isCompleted) {
-        return (
-          <span
-            key={index}
-            className={clsx(
-              styles.typingItem,
-              alignClass,
-              index < textArray.length - 1 && styles.block,
-            )}
-          >
-            {item}
-          </span>
-        );
-      }
-
-      if (isCurrent) {
-        return (
-          <span key={index} className={clsx(styles.typingItem, alignClass)}>
-            {item.slice(0, currentIdx)}
-          </span>
-        );
-      }
-
-      return null;
+      return renderLine(item, index, displayText, showLineCursor);
     });
 
-  return (
-    <span className={clsx(styles.typing)}>
-      {textArray ? (
-        renderSequence()
-      ) : (
-        <span className={clsx(styles[align[0]])}>
-          {currentTxt.slice(0, currentIdx)}
-        </span>
-      )}
+  const renderSingle = () =>
+    renderLine(
+      currentTxt || (Array.isArray(text) ? "" : text),
+      0,
+      currentTxt.slice(0, currentIdx),
+      true,
+    );
 
-      {showCursor && <span className={styles.cursor} aria-hidden="true" />}
+  return (
+    <span className={styles.typing}>
+      {textArray ? renderSequence() : renderSingle()}
     </span>
   );
 };
