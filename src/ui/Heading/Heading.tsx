@@ -9,6 +9,7 @@ interface HeadingProps {
   align?: "left" | "center" | "right";
   as?: "h2" | "h3" | "h4" | "h5" | "h6" | "strong";
   color?: "white" | "black" | "gray100" | "gray200" | "link";
+  weight?: "light" | "regular" | "medium" | "bold";
 }
 
 export const Heading = ({
@@ -18,6 +19,7 @@ export const Heading = ({
   align = "left",
   as = "h2",
   color = "white",
+  weight = "bold",
 }: HeadingProps) => {
   const Tag = as as React.ElementType;
   return (
@@ -27,6 +29,7 @@ export const Heading = ({
         styles[`size${size}`],
         styles[align],
         styles[color],
+        styles[weight],
         className,
       )}
     >

@@ -6,6 +6,7 @@ import { Button, Link, Text, Heading } from "@ui/index";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 interface NavProps {
   isOpen: boolean;
@@ -38,6 +39,7 @@ const NAV_LIST = [
 export function Nav({ isOpen, setIsOpen }: NavProps) {
   const portalRoot = usePortal("portal-root");
   const [isShow, setIsShow] = useState(false);
+  const router = useRouter();
 
   const handleClose = () => {
     setIsShow(false);
@@ -85,7 +87,13 @@ export function Nav({ isOpen, setIsOpen }: NavProps) {
             <ul className={styles.list}>
               {NAV_LIST.map((item, idx) => (
                 <li className={styles.item} key={`${item.href}-${idx}`}>
-                  <button className={styles.button}>
+                  <button
+                    className={styles.button}
+                    onClick={() => {
+                      handleClose();
+                      router.push(item.href);
+                    }}
+                  >
                     {item.label}{" "}
                     <Text
                       size="m"

@@ -6,13 +6,7 @@
   @include generate-cssVars($tokens);
   --root-max-width: #{rem(1300px)};
   --layout-vh: 1vh;
-}
-
-body {
-  position: relative;
   --base-spacing-x: var(--spacing-4);
-
-  padding-inline: var(--base-spacing-x);
 
   @include tablet {
     --base-spacing-x: var(--spacing-6);
@@ -25,6 +19,11 @@ body {
   @include desktop {
     --base-spacing-x: var(--spacing-base-x);
   }
+}
+
+body {
+  position: relative;
+  padding-inline: var(--base-spacing-x);
 }
 
 #root {

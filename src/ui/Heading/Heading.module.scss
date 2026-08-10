@@ -2,9 +2,10 @@
 
 .root {
   --heading-color: var(--color-white);
+  --heading-weight: var(--font-weight-bold);
 
   color: var(--heading-color);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--heading-weight);
 }
 
 .left {
@@ -31,6 +32,16 @@
 }
 .link {
   color: var(--color-link);
+}
+
+.light {
+  font-weight: var(--font-weight-light);
+}
+.regular {
+  font-weight: var(--font-weight-regular);
+}
+.medium {
+  font-weight: var(--font-weight-medium);
 }
 
 @for $i from 1 through 5 {
