@@ -3,11 +3,12 @@
 .root {
   --text-color: inherit;
   color: var(--text-color);
+  word-break: keep-all;
+  text-align: left;
+  font-size: var(--text-m);
+  color: var(--color-white);
 }
 
-.left {
-  text-align: left;
-}
 .center {
   text-align: center;
 }
@@ -15,9 +16,6 @@
   text-align: right;
 }
 
-.white {
-  color: var(--color-white);
-}
 .black {
   color: var(--color-black);
 }
@@ -39,9 +37,6 @@
 }
 .sizel {
   font-size: var(--text-l);
-}
-.sizem {
-  font-size: var(--text-m);
 }
 .sizes {
   font-size: var(--text-s);

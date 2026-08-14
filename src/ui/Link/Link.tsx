@@ -1,5 +1,6 @@
 "use client";
 
+import { forwardRef } from "react";
 import NextLink from "next/link";
 import styles from "./Link.module.scss";
 import clsx from "clsx";
@@ -11,15 +12,16 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: "underline" | "default";
 }
 
-export const Link = ({
-  href,
-  children,
-  className,
-  variant = "default",
-  ...props
-}: LinkProps) => {
+export const Link = forwardRef<
+  React.ComponentRef<typeof NextLink>,
+  LinkProps
+>(function Link(
+  { href, children, className, variant = "default", ...props },
+  ref,
+) {
   return (
     <NextLink
+      ref={ref}
       href={href}
       className={clsx(styles.root, className, variant && styles[variant])}
       {...props}
@@ -27,4 +29,4 @@ export const Link = ({
       {children}
     </NextLink>
   );
-};
+});

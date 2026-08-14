@@ -1,4 +1,4 @@
-import React from "react";
+import { createElement, forwardRef } from "react";
 import clsx from "clsx";
 import styles from "./Heading.module.scss";
 
@@ -12,28 +12,31 @@ interface HeadingProps {
   weight?: "light" | "regular" | "medium" | "bold";
 }
 
-export const Heading = ({
-  size,
-  children,
-  className,
-  align = "left",
-  as = "h2",
-  color = "white",
-  weight = "bold",
-}: HeadingProps) => {
-  const Tag = as as React.ElementType;
-  return (
-    <Tag
-      className={clsx(
+export const Heading = forwardRef<HTMLElement, HeadingProps>(function Heading(
+  {
+    size,
+    children,
+    className,
+    align = "left",
+    as = "h2",
+    color = "white",
+    weight = "bold",
+  },
+  ref,
+) {
+  return createElement(
+    as,
+    {
+      ref,
+      className: clsx(
         styles.root,
         styles[`size${size}`],
         styles[align],
         styles[color],
         styles[weight],
         className,
-      )}
-    >
-      {children}
-    </Tag>
+      ),
+    },
+    children,
   );
-};
+});

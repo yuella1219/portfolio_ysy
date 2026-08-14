@@ -1,11 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.scss";
 import { Heading, Text } from "@ui/index";
 import { TypingText } from "./TypingText";
+import clsx from "clsx";
 
 export function Home() {
+  const [isTypingEnd, setIsTypingEnd] = useState(false);
+
+  const handleTypingEnd = (end: boolean): void => {
+    setIsTypingEnd(end);
+  };
+
   return (
     <div className={styles.root}>
       <section className={styles.hero}>
@@ -15,10 +22,11 @@ export function Home() {
             speed={80}
             align={["left", "right", "left"]}
             startDelay={3000}
+            endDelay={handleTypingEnd}
           />
         </Heading>
 
-        <div className={styles.descGroup}>
+        <div className={clsx(styles.descGroup, isTypingEnd && styles.show)}>
           <Heading size="5" color="gray200" as="strong" weight="regular">
             디자인을 정확한 화면으로 구현하고, 구조적인 마크업과 유연한
             인터랙션으로

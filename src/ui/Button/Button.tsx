@@ -1,4 +1,4 @@
-import React from "react";
+import { forwardRef } from "react";
 import styles from "./Button.module.scss";
 import clsx from "clsx";
 
@@ -12,29 +12,35 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
 }
 
-export const Button = ({
-  children,
-  className,
-  onClick,
-  variant = "default",
-  size = "medium",
-  disabled = false,
-  type = "button",
-}: ButtonProps) => {
-  return (
-    <button
-      className={clsx(
-        styles.root,
-        className,
-        styles[variant],
-        styles[size],
-        disabled && styles.disabled,
-      )}
-      onClick={onClick}
-      disabled={disabled}
-      type={type}
-    >
-      {children}
-    </button>
-  );
-};
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button(
+    {
+      children,
+      className,
+      onClick,
+      variant = "default",
+      size = "medium",
+      disabled = false,
+      type = "button",
+    },
+    ref,
+  ) {
+    return (
+      <button
+        ref={ref}
+        className={clsx(
+          styles.root,
+          className,
+          styles[variant],
+          styles[size],
+          disabled && styles.disabled,
+        )}
+        onClick={onClick}
+        disabled={disabled}
+        type={type}
+      >
+        {children}
+      </button>
+    );
+  },
+);

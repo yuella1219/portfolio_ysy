@@ -4,9 +4,17 @@
 
 :root {
   @include generate-cssVars($tokens);
+  /* 컨텐츠 출력 최대 너비 */
   --root-max-width: #{rem(1300px)};
+  /* 레이아웃 높이 */
   --layout-vh: 1vh;
+  /* 기본 가로 여백 */
   --base-spacing-x: var(--spacing-4);
+  /* header 길이 */
+  --header-height: #{rem(42px)};
+
+  /* 컨테이너 위아래 여백 */
+  --container-padding-block: var(--spacing-container-m);
 
   @include tablet {
     --base-spacing-x: var(--spacing-6);
@@ -14,27 +22,57 @@
 
   @include laptop {
     --base-spacing-x: var(--spacing-8);
+    --header-height: #{rem(64px)};
+    --container-padding-block: var(--spacing-container-l);
   }
 
   @include desktop {
     --base-spacing-x: var(--spacing-base-x);
   }
+
+  /* 커스텀 스크롤바 — 아래 값만 수정 */
+  --scrollbar-width: 8px; /* 스크롤바 너비 */
+  --scrollbar-thumb: rgb(54, 54, 54); /* 썸(막대) 색 */
+  --scrollbar-track: transparent; /* 트랙 색 */
+
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* Firefox: thumb / track */
+
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
 }
 
 body {
   position: relative;
-  padding-inline: var(--base-spacing-x);
 }
 
 #root {
-  max-width: var(--root-max-width);
   margin: 0 auto;
+  padding-inline: var(--base-spacing-x);
 }
 
 .scroll-lock {
+  overflow: hidden;
   @include laptop {
-    overflow: hidden;
-    padding-right: calc(var(--spacing-base-x) + var(--spacing-4));
+    #root {
+      padding-right: calc(var(--spacing-base-x) + var(--spacing-4));
+    }
   }
 }
 

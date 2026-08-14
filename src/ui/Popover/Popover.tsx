@@ -1,7 +1,7 @@
 "use client";
 
 import { createPortal } from "react-dom";
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { useModalOverlay } from "@hooks/useModalOverlay";
 import { usePortal } from "@hooks/usePortal";
@@ -37,19 +37,22 @@ interface PopoverProps extends React.HTMLAttributes<HTMLDivElement> {
  * 트리거(anchor) 기준으로 열리는 popover.
  * #portal-root(absolute)에 패널만 portal하며, fixed·fullscreen overlay는 사용하지 않습니다.
  */
-export const Popover = ({
-  isOpen,
-  onClose,
-  anchorRef,
-  isDismissable = true,
-  closeOnScroll = true,
-  offset = 8,
-  labelledBy,
-  describedBy,
-  children,
-  className,
-  ...props
-}: PopoverProps) => {
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>(function Popover(
+  {
+    isOpen,
+    onClose,
+    anchorRef,
+    isDismissable = true,
+    closeOnScroll = true,
+    offset = 8,
+    labelledBy,
+    describedBy,
+    children,
+    className,
+    ...props
+  },
+  ref,
+) {
   const portalRoot = usePortal("portal-root");
   const popoverRef = useRef<HTMLDivElement>(null);
   const { overlayProps, modalProps } = useModalOverlay({
@@ -61,6 +64,19 @@ export const Popover = ({
     type: "popover",
   });
   const [position, setPosition] = useState<PopoverPosition>({ top: 0, left: 0 });
+
+  const setPopoverRef = (node: HTMLDivElement | null) => {
+    popoverRef.current = node;
+
+    if (typeof ref === "function") {
+      ref(node);
+      return;
+    }
+
+    if (ref) {
+      ref.current = node;
+    }
+  };
 
   // anchor document 좌표 추적
   useEffect(() => {
@@ -117,7 +133,7 @@ export const Popover = ({
   return createPortal(
     <div className={clsx(styles.overlay, isOpen && styles.open)} {...overlayProps}>
       <div
-        ref={popoverRef}
+        ref={setPopoverRef}
         className={clsx(styles.popover, className)}
         style={{ top: position.top, left: position.left }}
         {...props}
@@ -128,4 +144,4 @@ export const Popover = ({
     </div>,
     portalRoot,
   );
-};
+});

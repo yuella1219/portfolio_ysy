@@ -1,4 +1,4 @@
-import React from "react";
+import { createElement, forwardRef } from "react";
 import clsx from "clsx";
 import styles from "./Text.module.scss";
 
@@ -12,28 +12,31 @@ interface TextProps {
   weight?: "light" | "regular" | "medium" | "bold";
 }
 
-export const Text = ({
-  size = "m",
-  children,
-  className,
-  align = "left",
-  as = "p",
-  color = "gray200",
-  weight = "regular",
-}: TextProps) => {
-  const Tag = as as React.ElementType;
-  return (
-    <Tag
-      className={clsx(
+export const Text = forwardRef<HTMLElement, TextProps>(function Text(
+  {
+    size = "m",
+    children,
+    className,
+    align = "left",
+    as = "p",
+    color = "gray200",
+    weight = "regular",
+  },
+  ref,
+) {
+  return createElement(
+    as,
+    {
+      ref,
+      className: clsx(
         styles.root,
-        styles[`size${size}`],
-        styles[align],
-        styles[color],
-        styles[weight],
+        size !== "m" && styles[`size${size}`],
+        align !== "left" && styles[align],
+        color !== "white" && styles[color],
+        weight !== "regular" && styles[weight],
         className,
-      )}
-    >
-      {children}
-    </Tag>
+      ),
+    },
+    children,
   );
-};
+});

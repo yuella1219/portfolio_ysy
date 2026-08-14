@@ -1,5 +1,4 @@
-import { Home } from "@components/Home/Home";
-
+import MainPage from "@views/page";
 export default function Page() {
-  return <Home />;
+  return <MainPage />;
 }

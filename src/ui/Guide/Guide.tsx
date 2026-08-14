@@ -1,7 +1,15 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { Heading, Text, Button, TitleArea, Modal, Popover } from "@ui/index";
+import React, { forwardRef, useRef, useState } from "react";
+import {
+  Heading,
+  Text,
+  Button,
+  TitleArea,
+  Modal,
+  Popover,
+  FlexBox,
+} from "@ui/index";
 
 const ColorPalette = ({ color }: { color: string }) => {
   return (
@@ -18,14 +26,17 @@ const ColorPalette = ({ color }: { color: string }) => {
   );
 };
 
-export const Guide = () => {
+export const Guide = forwardRef<HTMLDivElement>(function Guide(_props, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const [isPopoverOpen2, setIsPopoverOpen2] = useState(false);
 
   return (
-    <div>
+    <div
+      ref={ref}
+      style={{ maxWidth: "1300px", margin: "0 auto", paddingBlock: "80px" }}
+    >
       <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
         <Button onClick={() => setIsOpen(!isOpen)}>Modal</Button>
         <div ref={popoverTriggerRef} style={{ display: "inline-flex" }}>
@@ -159,6 +170,22 @@ export const Guide = () => {
           }
         />
       </div>
+      <div style={{ marginTop: "24px" }}>
+        <Text size="l" color="gray200">
+          FlexBox
+        </Text>
+        <FlexBox gap={4}>
+          <Button variant="default" size="large">
+            Large
+          </Button>
+          <Button variant="default" size="medium">
+            Medium
+          </Button>
+          <Button variant="default" size="small">
+            Small
+          </Button>
+        </FlexBox>
+      </div>
     </div>
   );
-};
+});

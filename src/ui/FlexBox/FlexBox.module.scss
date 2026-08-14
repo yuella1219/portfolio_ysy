@@ -1,0 +1,161 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  display: flex;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.directionRow {
+  flex-direction: row;
+}
+
+.directionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.directionColumn {
+  flex-direction: column;
+}
+
+.directionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+.wrapNowrap {
+  flex-wrap: nowrap;
+}
+
+.wrapWrap {
+  flex-wrap: wrap;
+}
+
+.wrapWrapReverse {
+  flex-wrap: wrap-reverse;
+}
+
+.itemsStretch {
+  align-items: stretch;
+}
+
+.itemsStart {
+  align-items: flex-start;
+}
+
+.itemsEnd {
+  align-items: flex-end;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.itemsBaseline {
+  align-items: baseline;
+}
+
+.alignStretch {
+  align-content: stretch;
+}
+
+.alignStart {
+  align-content: flex-start;
+}
+
+.alignEnd {
+  align-content: flex-end;
+}
+
+.alignCenter {
+  align-content: center;
+}
+
+.alignBetween {
+  align-content: space-between;
+}
+
+.alignAround {
+  align-content: space-around;
+}
+
+.alignEvenly {
+  align-content: space-evenly;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.justifyAround {
+  justify-content: space-around;
+}
+
+.justifyEvenly {
+  justify-content: space-evenly;
+}
+
+.gap1 {
+  gap: var(--spacing-1);
+}
+
+.gap2 {
+  gap: var(--spacing-2);
+}
+
+.gap3 {
+  gap: var(--spacing-3);
+}
+
+.gap4 {
+  gap: var(--spacing-4);
+}
+
+.gap5 {
+  gap: var(--spacing-5);
+}
+
+.gap6 {
+  gap: var(--spacing-6);
+}
+
+.gap7 {
+  gap: var(--spacing-7);
+}
+
+.gap8 {
+  gap: var(--spacing-8);
+}
+
+.gap9 {
+  gap: var(--spacing-9);
+}
+
+.gap10 {
+  gap: var(--spacing-10);
+}
+
+.gap11 {
+  gap: var(--spacing-11);
+}
+
+.gap12 {
+  gap: var(--spacing-12);
+}
+
+.gapBaseX {
+  gap: var(--spacing-base-x);
+}

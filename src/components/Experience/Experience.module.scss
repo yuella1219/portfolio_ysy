@@ -1,0 +1,56 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  max-width: var(--root-max-width);
+  padding-block: var(--container-padding-block);
+  margin: 0 auto;
+  border-bottom: var(--border-width-base) solid var(--color-gray-100);
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-12);
+}
+
+.img {
+  max-width: rem(470px);
+  overflow: hidden;
+  &:hover {
+    img {
+      opacity: 0.8;
+    }
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--transition-fast);
+  }
+}
+
+.list {
+  flex: 1;
+}
+
+.item {
+  padding-block: var(--spacing-6);
+  border-bottom: var(--border-width-base) solid var(--color-gray-100);
+}
+
+@include laptop {
+  .root {
+  }
+  .content {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-top: 72px;
+  }
+}

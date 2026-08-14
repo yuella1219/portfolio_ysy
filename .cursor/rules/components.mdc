@@ -1,0 +1,119 @@
+---
+description: UI·components 컴포넌트 export 및 생성 규칙
+globs: src/ui/**/*.tsx,src/components/**/*.tsx
+alwaysApply: true
+---
+
+# 컴포넌트 export 규칙
+
+폴더별 export 방식을 구분한다.
+
+# SCSS Module — 최상단 `root`
+
+- SCSS Modules를 쓰는 컴포넌트(`*.module.scss`)는 **최상단 DOM 요소**에 **`styles.root`** 를 붙인다.
+- SCSS 파일에도 최상단 블록 클래스명은 **`.root`** 를 사용한다.
+- `className` prop이 있으면 `clsx(styles.root, className)` 형태로 병합한다.
+- ref가 연결되는 요소가 최상단이면, 그 요소에 `styles.root`를 함께 적용한다.
+
+```tsx
+// ✅ GOOD
+export function About({ className }: AboutProps) {
+  return (
+    <section className={clsx(styles.root, className)}>
+      <div className={styles.container}>...</div>
+    </section>
+  );
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button({ className, ...props }, ref) {
+    return (
+      <button
+        ref={ref}
+        className={clsx(styles.root, className)}
+        {...props}
+      />
+    );
+  },
+);
+```
+
+```scss
+// ✅ GOOD — About.module.scss
+.root {
+  position: relative;
+}
+```
+
+```tsx
+// ❌ BAD — 최상단에 root 대신 컴포넌트명·역할 클래스 사용
+<section className={styles.about}>
+<div className={styles.wrapper}>
+```
+
+```scss
+// ❌ BAD
+.about { ... }
+.wrapper { ... } // 최상단 전용으로 wrapper만 두지 않음
+```
+
+## `src/ui/` — `export const` + `forwardRef`
+
+- UI primitive는 **`export const`** 와 **`forwardRef`** 를 **항상** 함께 사용한다.
+- ref를 DOM에 연결하고, named function(`function Button(...)`)으로 displayName을 유지한다.
+
+```tsx
+// ✅ GOOD
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button(props, ref) {
+    return <button ref={ref} {...props} />;
+  },
+);
+
+export const FlexBox = forwardRef<HTMLElement, FlexBoxProps>(function FlexBox(
+  props,
+  ref,
+) {
+  return createElement(Component, { ref, ...props }, children);
+});
+```
+
+```tsx
+// ❌ BAD — ui에서 function declaration export
+export function Button() {
+  return <button />;
+}
+
+// ❌ BAD — forwardRef 없이 const export
+export const Button = (props: ButtonProps) => {
+  return <button />;
+};
+```
+
+## `src/components/` — `export function`
+
+- 페이지·레이아웃·섹션 단위 컴포넌트는 **`export function`** 을 사용한다.
+
+```tsx
+// ✅ GOOD
+export function About() {
+  return <section>...</section>;
+}
+
+export function Experience() {
+  return <section>...</section>;
+}
+```
+
+```tsx
+// ❌ BAD — components에서 const export
+export const About = () => {
+  return <section>...</section>;
+};
+```
+
+## 예외
+
+- `forwardRef`가 **필요한** `components` 컴포넌트는 드물지만, 필요 시 `export const` + `forwardRef`를 쓸 수 있다. 기본값은 `export function`을 유지한다.
+- 하위 전용 컴포넌트(예: `TypingText`)도 해당 폴더 규칙을 따른다.
+  - `src/components/**` → `export function`

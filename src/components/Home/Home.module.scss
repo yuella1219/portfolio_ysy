@@ -5,14 +5,17 @@ $grid-line: #4d4d4d;
 .root {
   --hero-padding-block: #{rem(94px)};
 
-  padding-block: var(--hero-padding-block);
+  padding-block: var(--hero-padding-block) 0;
+  max-width: var(--root-max-width);
+  margin: 0 auto;
 }
 
 .grid {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
+  max-height: rem(1500px);
 }
 
 .gridLineV {
@@ -47,7 +50,6 @@ $grid-line: #4d4d4d;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-10);
   min-height: calc(var(--hero-min-height-base) * var(--layout-vh, 1vh));
 }
 
@@ -121,6 +123,19 @@ $grid-line: #4d4d4d;
 }
 // TypingText
 // TypingText
+
+.descGroup {
+  margin-top: var(--spacing-4);
+  opacity: 0;
+  transform: translateY(var(--spacing-5));
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @include laptop {
   .gridLinesH {

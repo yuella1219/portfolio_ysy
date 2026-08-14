@@ -97,8 +97,6 @@ $nav-scroll-padding: calc(var(--spacing-base-x) + var(--spacing-4));
 }
 
 .fakeHeader {
-  --header-height: #{rem(42px)};
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -150,10 +148,6 @@ $nav-scroll-padding: calc(var(--spacing-base-x) + var(--spacing-4));
 
   .top {
     --top-padding-y: #{rem(80px)};
-  }
-
-  .fakeHeader {
-    --header-height: #{rem(64px)};
   }
 
   .top {

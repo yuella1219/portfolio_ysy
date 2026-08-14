@@ -13,6 +13,8 @@ interface TypingTextProps {
   align?: alignProps[];
   /** 텍스트 타이핑 시작 전 지연(ms) */
   startDelay?: number;
+  /** 타이핑 종료 */
+  endDelay?: (end: boolean) => void;
 }
 
 type TypingPhase = "waiting" | "ready" | "typing" | "done";
@@ -22,6 +24,7 @@ export const TypingText = ({
   speed = 80,
   align = ["left"] as alignProps[],
   startDelay = 0,
+  endDelay,
 }: TypingTextProps) => {
   const textArray = useMemo(() => (Array.isArray(text) ? text : null), [text]);
 
@@ -75,6 +78,11 @@ export const TypingText = ({
     if (phase !== "typing") return;
     return handleTyping();
   }, [phase, currentIdx, currentTxt, handleTyping]);
+
+  useEffect(() => {
+    if (phase !== "done") return;
+    endDelay?.(true);
+  }, [phase, endDelay]);
 
   const renderLine = (
     item: string,

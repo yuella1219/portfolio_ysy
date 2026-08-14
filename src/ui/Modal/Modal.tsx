@@ -1,5 +1,6 @@
 "use client";
 
+import { forwardRef } from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";
 import { useModalOverlay, usePortal } from "@hooks/index";
@@ -23,16 +24,19 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
  * 화면 전체를 덮는 dialog overlay.
  * #portal-root(absolute) + document 좌표로 배치하며 fixed는 사용하지 않습니다.
  */
-export const Modal = ({
-  isOpen,
-  onClose,
-  isDismissable = true,
-  labelledBy,
-  describedBy,
-  children,
-  className,
-  ...props
-}: ModalProps) => {
+export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
+  {
+    isOpen,
+    onClose,
+    isDismissable = true,
+    labelledBy,
+    describedBy,
+    children,
+    className,
+    ...props
+  },
+  ref,
+) {
   const portalRoot = usePortal("portal-root");
   const { overlayProps, modalProps } = useModalOverlay({
     isOpen,
@@ -50,10 +54,15 @@ export const Modal = ({
       className={clsx(styles.overlay, isOpen && styles.open)}
       {...overlayProps}
     >
-      <div className={clsx(styles.modal, className)} {...props} {...modalProps}>
+      <div
+        ref={ref}
+        className={clsx(styles.modal, className)}
+        {...props}
+        {...modalProps}
+      >
         {children}
       </div>
     </div>,
     portalRoot,
   );
-};
+});

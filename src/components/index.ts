@@ -2,4 +2,7 @@ export { Header } from "./Header/Header";
 export { Footer } from "./Footer/Footer";
 export { Nav } from "./Nav/Nav";
 export { Home } from "./Home/Home";
+export { About } from "./About/About";
+export { Experience } from "./Experience/Experience";
+export { Project } from "./Project/Project";
 export { ShellLayout } from "./Layout/ShellLayout";
