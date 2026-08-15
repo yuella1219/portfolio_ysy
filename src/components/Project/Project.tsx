@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import styles from "./Project.module.scss";
 import { TitleArea } from "@ui/index";
-import { useScrollLock, usePortal } from "@hooks/index";
 import clsx from "clsx";
 import { ProjectData } from "@data/index";
 import { ProjectCard } from "./ProjectCard";
@@ -11,6 +10,7 @@ import { ProjectDetail } from "./ProjectDetail";
 import type { ProjectDataProps } from "@data/index";
 
 export function Project() {
+  const [isTypingEnd, setIsTypingEnd] = useState(false);
   const [selectedProject, setSelectedProject] =
     useState<ProjectDataProps | null>(null);
 
@@ -23,14 +23,15 @@ export function Project() {
   };
 
   return (
-    <section className={clsx(styles.root)}>
+    <section id="project" className={clsx(styles.root)}>
       <TitleArea
         category="Project"
-        title=" "
+        title={""}
         description={<>프로젝트 경력</>}
+        endDelay={() => setIsTypingEnd(true)}
       />
 
-      <ul className={styles.list}>
+      <ul className={clsx(styles.list, isTypingEnd && styles.isShow)}>
         {ProjectData.map((item, idx) => (
           <li key={`${item.proNm}-${idx}`}>
             <ProjectCard data={item} onClick={() => handleCardClick(item)} />

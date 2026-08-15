@@ -15,6 +15,10 @@ interface TypingTextProps {
   startDelay?: number;
   /** 타이핑 종료 */
   endDelay?: (end: boolean) => void;
+  /** 커서 깜빡임 — true이고 phase가 done이면 커서 유지, false면 완료 후 언마운트 */
+  cursorBlink?: boolean;
+  /** 타이핑 시작 — true일 때 애니메이션 시작 */
+  start?: boolean;
 }
 
 type TypingPhase = "waiting" | "ready" | "typing" | "done";
@@ -25,11 +29,13 @@ export const TypingText = ({
   align = ["left"] as alignProps[],
   startDelay = 0,
   endDelay,
+  cursorBlink = true,
+  start = true,
 }: TypingTextProps) => {
   const textArray = useMemo(() => (Array.isArray(text) ? text : null), [text]);
 
   const [phase, setPhase] = useState<TypingPhase>(() =>
-    startDelay > 0 ? "waiting" : "ready",
+    start && startDelay === 0 ? "ready" : "waiting",
   );
   const [currentTxt, setCurrentTxt] = useState("");
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -56,14 +62,20 @@ export const TypingText = ({
   }, [currentIdx, currentTxt, speed, textArray, idxArr]);
 
   useEffect(() => {
+    if (!start) return;
     if (phase !== "waiting") return;
+
+    if (startDelay <= 0) {
+      setPhase("ready");
+      return;
+    }
 
     const timer = setTimeout(() => {
       setPhase("ready");
     }, startDelay);
 
     return () => clearTimeout(timer);
-  }, [phase, startDelay]);
+  }, [start, phase, startDelay]);
 
   useEffect(() => {
     if (phase !== "ready") return;
@@ -119,7 +131,8 @@ export const TypingText = ({
         : isCurrent
           ? item.slice(0, currentIdx)
           : "";
-      const showLineCursor = isActive || (phase === "done" && isLast);
+      const showLineCursor =
+        isActive || (phase === "done" && isLast && cursorBlink);
 
       return renderLine(item, index, displayText, showLineCursor);
     });
@@ -129,7 +142,7 @@ export const TypingText = ({
       currentTxt || (Array.isArray(text) ? "" : text),
       0,
       currentTxt.slice(0, currentIdx),
-      true,
+      phase !== "done" || cursorBlink,
     );
 
   return (

@@ -5,6 +5,7 @@ $grid-line: #4d4d4d;
 .root {
   --hero-padding-block: #{rem(94px)};
 
+  scroll-margin-top: var(--header-height);
   padding-block: var(--hero-padding-block) 0;
   max-width: var(--root-max-width);
   margin: 0 auto;
@@ -129,8 +130,8 @@ $grid-line: #4d4d4d;
   opacity: 0;
   transform: translateY(var(--spacing-5));
   transition:
-    opacity var(--transition-slow),
-    transform var(--transition-slow);
+    opacity var(--transition-slow) var(--ease-smooth),
+    transform var(--transition-slow) var(--ease-smooth);
   &.show {
     opacity: 1;
     transform: translateY(0);

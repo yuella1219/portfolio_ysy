@@ -12,6 +12,16 @@
   gap: var(--spacing-3);
 }
 
+.desc {
+  @include fade-motion(
+    var(--transition-slow),
+    0s,
+    var(--ease-default),
+    right,
+    var(--spacing-5)
+  );
+}
+
 @include laptop {
   .root {
     flex-direction: row;

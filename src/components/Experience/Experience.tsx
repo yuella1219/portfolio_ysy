@@ -1,14 +1,27 @@
+"use client";
+
+import { useRef, useState } from "react";
 import styles from "./Experience.module.scss";
 import { TitleArea, Text, Heading, FlexBox } from "@ui/index";
 import clsx from "clsx";
 import { ExperienceData } from "@data/index";
+import { useScrollTrigger } from "@hooks/useScrollTrigger";
 
 export function Experience() {
+  const [isTypingEnd, setIsTypingEnd] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
+  // const isVisible = useScrollTrigger(imgRef, {
+  //   offset: 100,
+  //   once: false,
+  //   direction: "down",
+  // });
+
   return (
-    <section className={clsx(styles.root)}>
+    <section id="experience" className={clsx(styles.root)}>
       <TitleArea
         category="Experience"
         title="다양한 환경에서 쌓은 경험"
+        endDelay={() => setIsTypingEnd(true)}
         description={
           <>
             서비스 목적에 맞는 마크업과 스타일링, 인터랙션을
@@ -19,11 +32,14 @@ export function Experience() {
       />
 
       <div className={styles.content}>
-        <div className={styles.img}>
+        <div
+          className={clsx(styles.img, isTypingEnd && styles.visible)}
+          ref={imgRef}
+        >
           <img src="/img/visual-experience.png" alt="" aria-hidden="true" />
         </div>
 
-        <ul className={styles.list}>
+        <ul className={clsx(styles.list, isTypingEnd && styles.isShow)}>
           {ExperienceData.map((item, idx) => (
             <li key={item.enNm + idx} className={styles.item}>
               <Text size="xxl" weight="medium" color="gray100">

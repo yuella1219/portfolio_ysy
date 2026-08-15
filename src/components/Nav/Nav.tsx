@@ -11,32 +11,33 @@ import { useRouter } from "next/navigation";
 interface NavProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  closeDelay?: number;
 }
 
 const NAV_LIST = [
   {
     label: "HOME",
-    href: "/home",
+    href: "#home",
   },
   {
     label: "ABOUT",
-    href: "/about",
+    href: "#about",
   },
   {
     label: "EXPERIENCE",
-    href: "/experience",
+    href: "#experience",
   },
   {
     label: "PROJECT",
-    href: "/project",
+    href: "#project",
   },
   {
     label: "SANDBOX",
-    href: "/sandbox",
+    href: "/guide",
   },
 ];
 
-export function Nav({ isOpen, setIsOpen }: NavProps) {
+export function Nav({ isOpen, setIsOpen, closeDelay = 800 }: NavProps) {
   const portalRoot = usePortal("portal-root");
   const [isShow, setIsShow] = useState(false);
   const { isLaptop } = useDeviceSize();
@@ -45,6 +46,25 @@ export function Nav({ isOpen, setIsOpen }: NavProps) {
   const handleClose = () => {
     setIsShow(false);
     setIsOpen(false);
+  };
+
+  const handleNavClick = (href: string) => {
+    handleClose();
+
+    if (!href.startsWith("#")) {
+      window.setTimeout(() => {
+        router.push(href);
+      }, closeDelay);
+      return;
+    }
+
+    const id = href.slice(1);
+    window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, closeDelay);
   };
 
   useEffect(() => {
@@ -94,10 +114,7 @@ export function Nav({ isOpen, setIsOpen }: NavProps) {
                 <li className={styles.item} key={`${item.href}-${idx}`}>
                   <button
                     className={styles.button}
-                    onClick={() => {
-                      handleClose();
-                      router.push(item.href);
-                    }}
+                    onClick={() => handleNavClick(item.href)}
                   >
                     {item.label}{" "}
                     <Text

@@ -78,7 +78,7 @@ export const ProjectDetail = ({
     <div className={clsx(styles.detailArea)} {...overlayProps} {...modalProps}>
       {isLaptop && (
         <div className={styles.cardArea}>
-          <ProjectCard data={data} onClick={() => {}} variant="detail" />
+          <ProjectCard data={data} onClick={onClose} variant="detail" />
         </div>
       )}
       {/* 프로젝트 상세 정보 */}

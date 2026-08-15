@@ -3,6 +3,7 @@
 .root {
   position: relative;
   max-width: var(--root-max-width);
+  scroll-margin-top: var(--header-height);
   padding-block: var(--container-padding-block);
   margin: 0 auto;
   border-bottom: var(--border-width-base) solid var(--color-gray-100);
@@ -13,6 +14,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
+
+  @include fade-motion(
+    var(--transition-default),
+    0s,
+    var(--ease-smooth),
+    bottom,
+    var(--spacing-5)
+  );
 }
 
 // ProjectCard
@@ -29,8 +38,8 @@
   border-bottom: var(--border-normal);
   background: var(--color-background);
   transition:
-    background var(--transition-default),
-    transform var(--transition-default);
+    background var(--transition-default) var(--ease-default),
+    transform var(--transition-default) var(--ease-default);
 
   &::before,
   &::after {
@@ -43,8 +52,8 @@
     opacity: 0;
     background: var(--color-gray-100);
     transition:
-      width var(--transition-default),
-      height var(--transition-default);
+      width var(--transition-default) var(--ease-default),
+      height var(--transition-default) var(--ease-default);
   }
   &::before {
     top: 0;
@@ -80,7 +89,7 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     transition: none;
-    animation: cardFlip 0.5s ease-in-out both;
+    animation: cardFlip var(--transition-content) var(--ease-smooth) both;
 
     .cardFront,
     .cardBack {
@@ -89,7 +98,7 @@
       border: var(--border-width-large) solid var(--color-white);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      animation: cardFade 0.5s ease-in-out both;
+      animation: cardFade var(--transition-content) var(--ease-smooth) both;
     }
 
     .cardFront {

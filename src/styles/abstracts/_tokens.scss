@@ -57,7 +57,7 @@ $tokens: (
     13: 52px,
     14: 56px,
     base-x: 54px,
-    container-m: 60px,
+    container-m: 80px,
     container-l: 160px,
   ),
   font-family: (
@@ -74,10 +74,16 @@ $tokens: (
     background: 20 20 20 / 0.8,
   ),
   transition: (
-    nav: 0.8s ease-in-out,
-    slow: 0.5s ease-in-out,
-    default: 0.3s ease-in-out,
-    fast: 0.1s ease-in-out,
+    fast: 0.1s,
+    default: 0.3s,
+    slow: 0.5s,
+    nav: 0.8s,
+    content: 1.5s,
+  ),
+  ease: (
+    smooth: cubic-bezier(0.22, 1, 0.36, 1),
+    hover: cubic-bezier(0.16, 1, 0.3, 1),
+    default: ease-in-out,
   ),
 );
 

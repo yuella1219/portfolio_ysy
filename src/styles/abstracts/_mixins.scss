@@ -30,3 +30,31 @@ $desktop: 1402px;
     @content;
   }
 }
+
+@mixin fade-motion(
+  $duration: 0.6s,
+  $delay: 0s,
+  $ease: var(--ease-smooth),
+  $direction: bottom,
+  $distance: 40px
+) {
+  opacity: 0;
+  transition:
+    opacity $duration ease $delay,
+    transform $duration $ease $delay;
+
+  @if $direction == bottom {
+    transform: translateY($distance);
+  } @else if $direction == top {
+    transform: translateY(-$distance);
+  } @else if $direction == left {
+    transform: translateX(-$distance);
+  } @else if $direction == right {
+    transform: translateX($distance);
+  }
+
+  &.isShow {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

@@ -42,7 +42,7 @@ export function Header() {
         <span className={styles.icon} />
         MENU
       </Button>
-      <Nav isOpen={isOpen} setIsOpen={handleMenuClose} />
+      <Nav isOpen={isOpen} setIsOpen={handleMenuClose} closeDelay={NAV_DELAY} />
     </header>
   );
 }

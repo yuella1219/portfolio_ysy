@@ -39,7 +39,7 @@ export const ProjectData: ProjectDataProps[] = [
     devFrm: "ReactㆍNext.js",
     devOs: "Mobile App",
     clientNm: "키움저축은행",
-    member: 4,
+    member: 5,
     contribRate: 30,
     role: "pe",
     proInter: <>기존 키움저축은행 앱을 React로 리뉴얼/고도화</>,
@@ -133,7 +133,7 @@ export const ProjectData: ProjectDataProps[] = [
     useLaun: `HTML5, CSS3, Javascript, jQuery`,
     devOs: `PC Web | Mobile Web`,
     clientNm: `경남 디지털 혁신 튜브`,
-    member: 8,
+    member: 3,
     contribRate: 50,
     role: "pe",
     proInter: <>경남 디지털 혁신튜브 리뉴얼</>,
@@ -255,7 +255,7 @@ export const ProjectData: ProjectDataProps[] = [
     contribRate: 50,
     role: "pe",
     clientNm: `신한은행`,
-    member: 14,
+    member: 2,
     proInter: (
       <>
         신한은행 대환대출 서비스 신규 개발
@@ -317,7 +317,7 @@ export const ProjectData: ProjectDataProps[] = [
     contribRate: 60,
     role: "pe",
     clientNm: `BGF Networks`,
-    member: 5,
+    member: 4,
     proInter: <>CU POST 전체 리뉴얼 프로젝트</>,
     intoTxt: (
       <>

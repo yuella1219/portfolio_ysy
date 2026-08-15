@@ -14,14 +14,14 @@ export function Home() {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} id="home">
       <section className={styles.hero}>
         <Heading size="1" as="strong" className={styles.headline}>
           <TypingText
             text={["FORWARD", "THROUGH", "CRAFTING"]}
             speed={80}
             align={["left", "right", "left"]}
-            startDelay={3000}
+            startDelay={2000}
             endDelay={handleTypingEnd}
           />
         </Heading>

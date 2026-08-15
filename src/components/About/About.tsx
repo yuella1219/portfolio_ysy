@@ -8,6 +8,7 @@ import { useDeviceSize } from "@/hooks";
 
 export function About() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTypingEnd, setIsTypingEnd] = useState(false);
   const { isLaptop } = useDeviceSize();
   const titleAreaRef = useRef<HTMLDivElement>(null);
 
@@ -33,12 +34,13 @@ export function About() {
   }, [isOpen]);
 
   return (
-    <section className={clsx(styles.root)}>
+    <section id="about" className={clsx(styles.root)}>
       <div className={styles.container}>
         <TitleArea
           ref={titleAreaRef}
           category="About"
           title="구현으로 증명하는 강점"
+          endDelay={() => setIsTypingEnd(true)}
           description={
             isOpen ? (
               <>
@@ -56,7 +58,7 @@ export function About() {
           }
         />
 
-        <div className={styles.content}>
+        <div className={clsx(styles.content, isTypingEnd && styles.isShow)}>
           {!isOpen ? (
             <>
               <div className={styles.item}>
@@ -157,9 +159,12 @@ export function About() {
           )}
         </div>
 
-        <FlexBox justify="end">
+        <FlexBox
+          justify="end"
+          className={clsx(styles.btn, isTypingEnd && styles.isShow)}
+        >
           <Button size="medium" variant="default" onClick={handleReadMore}>
-            {isOpen ? "Back" : "Read More"}
+            {isOpen ? "Back" : "Read Interview"}
           </Button>
         </FlexBox>
       </div>
