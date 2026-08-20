@@ -66,13 +66,21 @@ export function useModalOverlay({
     if (!isOpen || type !== "dialog") return;
 
     const updateViewport = () => {
-      setVh(window.innerHeight * 0.01);
+      const visualHeight = window.visualViewport?.height ?? window.innerHeight;
+      setVh(visualHeight * 0.01);
       setViewport(getOverlayViewportRect());
     };
 
     updateViewport();
+    const visualViewport = window.visualViewport;
     window.addEventListener("resize", updateViewport);
-    return () => window.removeEventListener("resize", updateViewport);
+    visualViewport?.addEventListener("resize", updateViewport);
+    visualViewport?.addEventListener("scroll", updateViewport);
+    return () => {
+      window.removeEventListener("resize", updateViewport);
+      visualViewport?.removeEventListener("resize", updateViewport);
+      visualViewport?.removeEventListener("scroll", updateViewport);
+    };
   }, [isOpen, type]);
 
   // dialog: portal 형제 요소(header, main, footer)를 스크린리더에서 숨김
@@ -111,10 +119,10 @@ export function useModalOverlay({
       type === "dialog"
         ? {
             position: "absolute" as const,
-            top: viewport.top,
+            top: `calc(${viewport.top}px - env(safe-area-inset-top, 0px))`,
             left: 0,
             right: 0,
-            height: viewport.height,
+            height: `calc(${viewport.height}px + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px))`,
           }
         : {};
 
