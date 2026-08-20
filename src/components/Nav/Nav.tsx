@@ -140,8 +140,8 @@ export function Nav({ isOpen, setIsOpen, closeDelay = 800 }: NavProps) {
               Direct Connect
             </Text>
             <Text size="l" color="white">
-              <Link href="mailto:yuella1219@namver.com" className={styles.mail}>
-                yuella1219@namver.com
+              <Link href="mailto:yuella1219@naver.com" className={styles.mail}>
+                yuella1219@naver.com
               </Link>
             </Text>
           </div>

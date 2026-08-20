@@ -3,8 +3,9 @@ import "@styles/globals.scss";
 import { SmoothScroll } from "@contexts/index";
 
 export const metadata: Metadata = {
-  title: "Portfolio 2026",
-  description: "Web Publisher Portfolio",
+  title: "Forward Through Crafting",
+  description:
+    "Forward Through Crafting is a portfolio of Seungyeon, a web publisher who creates accessible and interactive web experiences.",
 };
 
 export default function RootLayout({

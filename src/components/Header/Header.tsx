@@ -24,7 +24,7 @@ export function Header() {
       <h1>
         <Heading size="3" as="strong">
           <Link href="/">
-            {!isLaptop ? "Forward" : "Forward Through Craft"}
+            {!isLaptop ? "Forward" : "Forward Through Crafting"}
           </Link>
         </Heading>
       </h1>

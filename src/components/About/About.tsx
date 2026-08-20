@@ -164,7 +164,7 @@ export function About() {
           className={clsx(styles.btn, isTypingEnd && styles.isShow)}
         >
           <Button size="medium" variant="default" onClick={handleReadMore}>
-            {isOpen ? "Back" : "Read Interview"}
+            {isOpen ? "Back" : "Read More"}
           </Button>
         </FlexBox>
       </div>

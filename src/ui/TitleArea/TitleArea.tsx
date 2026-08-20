@@ -49,6 +49,7 @@ export const TitleArea = forwardRef<HTMLDivElement, TitleAreaProps>(
           size={isLaptop ? "2" : "4"}
           as="strong"
           className={clsx(styles.desc, isTypingEnd && styles.isShow)}
+          {...!isLaptop && { weight: "regular" }}
         >
           {description}
         </Heading>
