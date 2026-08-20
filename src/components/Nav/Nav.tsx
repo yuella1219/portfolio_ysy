@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { createPortal } from "react-dom";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { withBasePath } from "@utils/index";
 
 interface NavProps {
   isOpen: boolean;
@@ -108,7 +109,7 @@ export function Nav({ isOpen, setIsOpen, closeDelay = 800 }: NavProps) {
           <div className={styles.top}>
             {isLaptop && (
               <img
-                src="/img/visual/nav-img.png"
+                src={withBasePath("/img/visual/nav-img.png")}
                 className={styles.img}
                 alt=""
               />

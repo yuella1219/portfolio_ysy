@@ -5,6 +5,7 @@ import styles from "./Experience.module.scss";
 import { TitleArea, Text, Heading, FlexBox } from "@ui/index";
 import clsx from "clsx";
 import { ExperienceData } from "@data/index";
+import { withBasePath } from "@utils/index";
 
 export function Experience() {
   const [isTypingEnd, setIsTypingEnd] = useState(false);
@@ -31,7 +32,7 @@ export function Experience() {
           ref={imgRef}
         >
           <img
-            src="/img/visual/visual-experience.png"
+            src={withBasePath("/img/visual/visual-experience.png")}
             alt=""
             aria-hidden="true"
           />

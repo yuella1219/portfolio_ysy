@@ -8,6 +8,7 @@ import { Text, Heading, Link, FlexBox } from "@ui/index";
 import { ProjectCard } from "./ProjectCard";
 import { useDeviceSize, usePortal, useModalOverlay } from "@hooks/index";
 import { createPortal } from "react-dom";
+import { withBasePath } from "@utils/index";
 
 const InfoItem = ({
   name,
@@ -144,7 +145,7 @@ export const ProjectDetail = ({
                   onClick={() => setZoomImg(image)}
                 >
                   <img
-                    src={image}
+                    src={withBasePath(image)}
                     alt=""
                     aria-hidden="true"
                     className={styles.img}
@@ -161,7 +162,7 @@ export const ProjectDetail = ({
                 >
                   <div className={styles.scroll} data-lenis-prevent>
                     <img
-                      src={zoomImg}
+                      src={withBasePath(zoomImg)}
                       className={styles.zoomImg}
                       alt=""
                       aria-hidden="true"

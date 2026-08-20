@@ -1,11 +1,13 @@
+@use "../abstracts/env" as *;
+
 @font-face {
   font-family: "Pretendard";
   font-weight: 700;
   font-display: swap;
   src:
     local("Pretendard Bold"),
-    url(/public/fonts/Pretendard-Bold.woff2) format("woff2"),
-    url(/public/fonts/Pretendard-Bold.woff) format("woff");
+    url("#{$base-path}/fonts/Pretendard-Bold.woff2") format("woff2"),
+    url("#{$base-path}/fonts/Pretendard-Bold.woff") format("woff");
 }
 
 @font-face {
@@ -14,8 +16,8 @@
   font-display: swap;
   src:
     local("Pretendard Medium"),
-    url(/public/fonts/Pretendard-Medium.woff2) format("woff2"),
-    url(/public/fonts/Pretendard-Medium.woff) format("woff");
+    url("#{$base-path}/fonts/Pretendard-Medium.woff2") format("woff2"),
+    url("#{$base-path}/fonts/Pretendard-Medium.woff") format("woff");
 }
 
 @font-face {
@@ -24,8 +26,8 @@
   font-display: swap;
   src:
     local("Pretendard Regular"),
-    url(/public/fonts/Pretendard-Regular.woff2) format("woff2"),
-    url(/public/fonts/Pretendard-Regular.woff) format("woff");
+    url("#{$base-path}/fonts/Pretendard-Regular.woff2") format("woff2"),
+    url("#{$base-path}/fonts/Pretendard-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -34,6 +36,6 @@
   font-display: swap;
   src:
     local("Pretendard Light"),
-    url(/public/fonts/Pretendard-Light.woff2) format("woff2"),
-    url(/public/fonts/Pretendard-Light.woff) format("woff");
+    url("#{$base-path}/fonts/Pretendard-Light.woff2") format("woff2"),
+    url("#{$base-path}/fonts/Pretendard-Light.woff") format("woff");
 }
