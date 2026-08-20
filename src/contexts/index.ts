@@ -1,1 +1,1 @@
-export { default as SmoothScroll } from "./SmoothScroll.tsx";
+export { default as SmoothScroll } from "./SmoothScroll";
