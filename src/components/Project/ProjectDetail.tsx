@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import styles from "./Project.module.scss";
 import type { ProjectDataProps } from "@data/index";
@@ -12,12 +12,10 @@ import { createPortal } from "react-dom";
 const InfoItem = ({
   name,
   value,
-  valueAs,
   className,
 }: {
   name: string;
   value: string | number | ProjectDataProps["url"];
-  valueAs?: "string" | "link";
   className?: string;
 }) => {
   return (
@@ -61,6 +59,7 @@ export const ProjectDetail = ({
   data: ProjectDataProps;
   onClose: () => void;
 }) => {
+  const [zoomImg, setZoomImg] = useState("");
   const { isMobile, isLaptop } = useDeviceSize();
   const portalRoot = usePortal("portal-root");
 
@@ -82,7 +81,7 @@ export const ProjectDetail = ({
         </div>
       )}
       {/* 프로젝트 상세 정보 */}
-      <div className={styles.detailContent}>
+      <div className={styles.detailContent} data-lenis-prevent>
         <Text size="m" color="gray100">
           {data.posNm}
         </Text>
@@ -112,9 +111,7 @@ export const ProjectDetail = ({
             value={data.role}
             className={styles.roleTxt}
           />
-          {data.url && (
-            <InfoItem name="관련 url" value={data.url} valueAs="link" />
-          )}
+          {data.url && <InfoItem name="관련 url" value={data.url} />}
         </ul>
 
         <div className={styles.desc}>
@@ -137,6 +134,52 @@ export const ProjectDetail = ({
           </Text>
           <div className={styles.descTxt}>{data.intoTxt}</div>
         </div>
+        {data.images && (
+          <>
+            <div className={styles.imgList}>
+              {data.images.map((image, idx) => (
+                <button
+                  key={`image-${idx}`}
+                  className={styles.clickBtn}
+                  onClick={() => setZoomImg(image)}
+                >
+                  <img
+                    src={image}
+                    alt=""
+                    aria-hidden="true"
+                    className={styles.img}
+                  />
+                </button>
+              ))}
+            </div>
+            {zoomImg &&
+              createPortal(
+                <div
+                  className={styles.zoomArea}
+                  {...overlayProps}
+                  {...modalProps}
+                >
+                  <div className={styles.scroll} data-lenis-prevent>
+                    <img
+                      src={zoomImg}
+                      className={styles.zoomImg}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <button
+                    className={styles.closeBtn}
+                    onClick={() => setZoomImg("")}
+                  ></button>
+                  <div
+                    className={styles.dimmed}
+                    onClick={() => setZoomImg("")}
+                  />
+                </div>,
+                portalRoot,
+              )}
+          </>
+        )}
         <button className={styles.closeBtn} onClick={onClose}></button>
       </div>
       <div className={styles.dimmed} onClick={onClose} />

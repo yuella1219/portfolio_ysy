@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { setBodyScrollLock } from "@utils/index";
+import { useLenis } from "lenis/react";
 
 /**
  * body 스크롤 잠금을 토글합니다.
@@ -10,8 +11,24 @@ import { setBodyScrollLock } from "@utils/index";
  * @param lock - true면 scroll lock 적용, false면 해제
  */
 export function useScrollLock(lock: boolean) {
+  const lenis = useLenis();
+
   useEffect(() => {
+    if (!lenis) return;
+
+    if (lock) {
+      lenis.stop();
+      document.body.style.overflow = "hidden";
+    } else {
+      lenis.start();
+      document.body.style.overflow = "";
+    }
+
     setBodyScrollLock(lock);
-    return () => setBodyScrollLock(false);
-  }, [lock]);
+    return () => {
+      lenis.start();
+      document.body.style.overflow = "";
+      setBodyScrollLock(false);
+    };
+  }, [lock, lenis]);
 }

@@ -9,6 +9,7 @@ $grid-line: #4d4d4d;
   padding-block: var(--hero-padding-block) 0;
   max-width: var(--root-max-width);
   margin: 0 auto;
+  will-change: transform;
 }
 
 .grid {
@@ -45,7 +46,7 @@ $grid-line: #4d4d4d;
 }
 
 .hero {
-  --hero-min-height-base: 60;
+  --hero-min-height-base: 55;
 
   position: relative;
   z-index: 1;
@@ -139,6 +140,9 @@ $grid-line: #4d4d4d;
 }
 
 @include laptop {
+  .root {
+    min-height: 100vh;
+  }
   .gridLinesH {
     --grid-lines-h-margin-block: #{rem(204px)};
   }

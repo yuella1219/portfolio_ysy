@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, About, Experience, Project } from "@components/index";
+import { Home, About, Experience, Project, Etc } from "@components/index";
 
 export default function MainPage() {
   return (
@@ -9,6 +9,7 @@ export default function MainPage() {
       <About />
       <Experience />
       <Project />
+      <Etc />
     </>
   );
 }

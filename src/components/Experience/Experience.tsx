@@ -5,16 +5,10 @@ import styles from "./Experience.module.scss";
 import { TitleArea, Text, Heading, FlexBox } from "@ui/index";
 import clsx from "clsx";
 import { ExperienceData } from "@data/index";
-import { useScrollTrigger } from "@hooks/useScrollTrigger";
 
 export function Experience() {
   const [isTypingEnd, setIsTypingEnd] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
-  // const isVisible = useScrollTrigger(imgRef, {
-  //   offset: 100,
-  //   once: false,
-  //   direction: "down",
-  // });
 
   return (
     <section id="experience" className={clsx(styles.root)}>
@@ -36,7 +30,11 @@ export function Experience() {
           className={clsx(styles.img, isTypingEnd && styles.visible)}
           ref={imgRef}
         >
-          <img src="/img/visual-experience.png" alt="" aria-hidden="true" />
+          <img
+            src="/img/visual/visual-experience.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
         <ul className={clsx(styles.list, isTypingEnd && styles.isShow)}>

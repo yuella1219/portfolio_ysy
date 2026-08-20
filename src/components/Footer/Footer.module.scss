@@ -1,0 +1,12 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  border-top: var(--border-width-base) solid var(--color-gray-100);
+}
+
+.content {
+  width: calc(100% - var(--base-spacing-x));
+  max-width: var(--root-max-width);
+  margin: 0 auto;
+  padding-block: var(--spacing-6);
+}

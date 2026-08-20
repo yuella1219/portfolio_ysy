@@ -9,24 +9,23 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactNode;
   className?: string;
-  variant?: "underline" | "default";
+  variant?: "underline" | "default" | "ghost";
 }
 
-export const Link = forwardRef<
-  React.ComponentRef<typeof NextLink>,
-  LinkProps
->(function Link(
-  { href, children, className, variant = "default", ...props },
-  ref,
-) {
-  return (
-    <NextLink
-      ref={ref}
-      href={href}
-      className={clsx(styles.root, className, variant && styles[variant])}
-      {...props}
-    >
-      {children}
-    </NextLink>
-  );
-});
+export const Link = forwardRef<React.ComponentRef<typeof NextLink>, LinkProps>(
+  function Link(
+    { href, children, className, variant = "default", ...props },
+    ref,
+  ) {
+    return (
+      <NextLink
+        ref={ref}
+        href={href}
+        className={clsx(styles.root, className, variant && styles[variant])}
+        {...props}
+      >
+        {children}
+      </NextLink>
+    );
+  },
+);

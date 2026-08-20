@@ -56,6 +56,8 @@
     height: 0;
     visibility: hidden;
   }
+
+  scroll-behavior: smooth;
 }
 
 body {
@@ -71,7 +73,7 @@ body {
   overflow: hidden;
   @include laptop {
     #root {
-      padding-right: calc(var(--spacing-base-x) + var(--spacing-4));
+      padding-right: calc(var(--spacing-base-x) + var(--spacing-2));
     }
   }
 }

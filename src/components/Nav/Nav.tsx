@@ -32,8 +32,8 @@ const NAV_LIST = [
     href: "#project",
   },
   {
-    label: "SANDBOX",
-    href: "/guide",
+    label: "ETC",
+    href: "#etc",
   },
 ];
 
@@ -107,7 +107,11 @@ export function Nav({ isOpen, setIsOpen, closeDelay = 800 }: NavProps) {
         <nav className={clsx(styles.container, isShow && styles.open)}>
           <div className={styles.top}>
             {isLaptop && (
-              <img src="/img/nav-img.png" className={styles.img} alt="" />
+              <img
+                src="/img/visual/nav-img.png"
+                className={styles.img}
+                alt=""
+              />
             )}
             <ul className={styles.list}>
               {NAV_LIST.map((item, idx) => (

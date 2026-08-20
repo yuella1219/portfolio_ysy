@@ -6,9 +6,9 @@ export function setBodyScrollLock(lock: boolean) {
   if (typeof document === "undefined") return;
   const LOCK_CLASS = "scroll-lock";
   if (lock) {
-    document.body.classList.add(LOCK_CLASS);
+    document.documentElement.classList.add(LOCK_CLASS);
   } else {
-    document.body.classList.remove(LOCK_CLASS);
+    document.documentElement.classList.remove(LOCK_CLASS);
   }
 }
 

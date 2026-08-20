@@ -1,0 +1,20 @@
+@use "@styles/abstracts" as *;
+
+.root {
+  position: relative;
+  max-width: var(--root-max-width);
+  scroll-margin-top: var(--header-height);
+  padding-block: var(--container-padding-block);
+  margin: 0 auto;
+}
+
+.link {
+  margin-top: var(--spacing-12);
+  @include fade-motion(
+    var(--transition-default),
+    0s,
+    var(--ease-smooth),
+    bottom,
+    var(--spacing-5)
+  );
+}

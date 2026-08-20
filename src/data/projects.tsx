@@ -1,16 +1,4 @@
 import React from "react";
-// import {
-//   cuMo,
-//   cuPc,
-//   ets01,
-//   ets02,
-//   cgv,
-//   shinhan01,
-//   shinhan02,
-//   lg01,
-//   lg02,
-//   lg03,
-// } from "../../img";
 
 export type ProjectDataProps = {
   posNm: string; // 포지션
@@ -21,83 +9,103 @@ export type ProjectDataProps = {
   devFrm?: string; // 개발 프레임워크
   devOs: string; // 개발 플랫폼
   clientNm: string; // 클라이언트명
-  member: number; // 퍼블리싱 팀 인원
+  member: string; // 퍼블리싱 팀 인원
   contribRate: number; // 기여도
   role: "pl" | "pe"; // 역할(pl, pe)
   proInter: React.ReactNode; // 프로젝트 내용 요약
   intoTxt: React.ReactNode; // 프로젝트 내용 상세
   url?: { name: string; url: string }[]; // 링크
+  images?: string[]; // 스크린샷
 };
 
 export const ProjectData: ProjectDataProps[] = [
   {
     posNm: "Publishing",
     proNm: "키움저축은행 고도화",
-    startDt: "2025-12",
-    endDt: "2026-02",
+    startDt: "2025.12",
+    endDt: "2026.02",
     useLaun: "ReactㆍTypeScript",
     devFrm: "ReactㆍNext.js",
     devOs: "Mobile App",
     clientNm: "키움저축은행",
-    member: 5,
+    member: "Publishing 5",
     contribRate: 30,
     role: "pe",
     proInter: <>기존 키움저축은행 앱을 React로 리뉴얼/고도화</>,
     intoTxt: (
       <>
-        키움저축은행 리뉴얼/고도화
+        <p>키움저축은행 리뉴얼/고도화</p>
         <br />
-        <br />
-        담당파트 - 여신 / 대출관리 / 예적금관리
+        <strong>주요 작업</strong>
+        <ul>
+          <li>UI 컴포넌트 작성</li>
+          <li>여신 프로세스 전체</li>
+          <li>대출관리 프로세스 전체</li>
+          <li>예적금관리 프로세스 전체</li>
+        </ul>
       </>
     ),
   },
   {
     posNm: "Publishing",
     proNm: "더현대 뉴커머스 프로젝트",
-    startDt: "2025-06",
-    endDt: "2025-11",
+    startDt: "2025.06",
+    endDt: "2025.11",
     useLaun: "ReactㆍTypeScript",
     devFrm: "ReactㆍNext.js",
     devOs: "PC Web | Mobile Web | Mobile App",
     clientNm: "현대백화점",
-    member: 5,
+    member: "Publishing 5",
     contribRate: 25,
     role: "pe",
     url: [
       { name: "COS", url: "https://www.cos.com/ko-kr" },
       { name: "ARKET", url: "https://www.arket.com/ko-kr" },
     ],
-    proInter: <>기존 더현대 온라인 쇼핑몰을 React로 고도화</>,
+    proInter: <>더현대 온라인 쇼핑몰 포함 5개 브랜드 사이트 React 고도화</>,
     intoTxt: (
       <>
-        더현대 온라인 쇼핑몰 고도화 프로젝트
+        <p>
+          더현대 온라인 쇼핑몰 고도화 프로젝트
+          <br />총 5개 브랜드 사이트 중 2개 브랜드 쇼핑물을 React로 고도화
+        </p>
         <br />
-        <br />
-        고도화 사이트 총 5개 중<br />
-        기존 서비스 중인 브랜드 쇼핑물 2개를 React로 고도화 <br />
-        공통 프레임 레이아웃부터 UI 컴포넌트까지
-        <br />
-        2개 브랜드 사이트 기여도 100% (1인 담당 작업)
+        <strong>주요 작업</strong>
+        <ul>
+          <li>담당 브랜드: COS, ARKET</li>
+          <li>공통 컴포넌트 작성</li>
+          <li>UI 레이아웃</li>
+          <li className="ut-font-bold">각 브랜드 사이트 기여도 100%</li>
+        </ul>
       </>
     ),
   },
   {
     posNm: "Publishing",
     proNm: "예금보험공사 웹접근성 작업",
-    startDt: "2025-03",
-    endDt: "2025-04",
+    startDt: "2025.03",
+    endDt: "2025.04",
     useLaun: "HTML5, CSS3, Javascript, jQuery",
     devOs: "PC Web",
     clientNm: "예금보험공사",
-    member: 4,
+    member: "Publishing 4",
     contribRate: 50,
     role: "pl",
+    url: [
+      { name: "예금보험공사", url: "https://www.kdic.or.kr/sp/main.do" },
+      {
+        name: "생활금융아카데미",
+        url: "https://www.kdic.or.kr/edu/fa/main/main.do",
+      },
+      { name: "예보공매정보", url: "https://www.kdic.or.kr/kasset/as/main.do" },
+      { name: "금융안심포탈", url: "https://fins.kdic.or.kr/" },
+      {
+        name: "웹 인증현황",
+        url: "https://www.wa.or.kr/board/list.asp?search=total&SearchString=%BF%B9%B1%DD&BoardID=0006",
+      },
+    ],
     proInter: (
-      <>
-        예금보험공사 산하 운영 서비스 4개 사이트의 웹 접근성 품질인증 심사에
-        대응하고, 최종 통과까지 완료한 프로젝트입니다.
-      </>
+      <>예금보험공사 산하 운영 서비스 4개 사이트의 웹 접근성 품질인증 작업</>
     ),
     intoTxt: (
       <>
@@ -133,19 +141,20 @@ export const ProjectData: ProjectDataProps[] = [
     useLaun: `HTML5, CSS3, Javascript, jQuery`,
     devOs: `PC Web | Mobile Web`,
     clientNm: `경남 디지털 혁신 튜브`,
-    member: 3,
+    member: "Publishing 3",
     contribRate: 50,
     role: "pe",
+    url: [{ name: "홈페이지", url: "https://www.gongnam.go.kr/" }],
     proInter: <>경남 디지털 혁신튜브 리뉴얼</>,
     intoTxt: (
       <>
-        공통 컴포넌트 가이드 작업
-        <br />
-        Gnb작업
-        <br />
-        사용자 화면 퍼블리싱
-        <br />
-        사용자 화면 UI/UX 스크립트 작업(60%)
+        <strong>주요 작업</strong>
+        <ul>
+          <li>공통 컴포넌트 가이드 작업</li>
+          <li>Gnb작업</li>
+          <li>사용자 화면 퍼블리싱</li>
+          <li>사용자 화면 UI/UX 스크립트 작업(60%)</li>
+        </ul>
       </>
     ),
   },
@@ -157,51 +166,53 @@ export const ProjectData: ProjectDataProps[] = [
     useLaun: `React Native`,
     devOs: `Android | iOS`,
     clientNm: `-`,
-    member: 4,
+    member: "Development 4",
     contribRate: 40,
     role: "pe",
     proInter: <>외부 활동과 SNS가 통합된 마일리지 서비스 어플리케이션</>,
     intoTxt: (
       <>
-        공통 컴포넌트 작업
-        <br />
-        사용자 화면 컴포넌트 작업
-        <br />
-        메인 피드
-        <br />내 정보
-        <br />
-        <br /> 메인 피드 리스트 출력 데이터 호출
-        <br />
-        피드 작성 기능 구현
-        <br /> 피드 상세페이지 데이터 호출
-        <br />
-        피드 수정 기능 구현
-        <br />
-        피드 삭제 기능 구현
-        <br />
-        좋아요 기능 구현
-        <br />
-        댓글/대댓글 등록 기능 구현
-        <br />
-        피드/댓글 신고 기능 구현
+        <strong>주요 작업</strong>
+        <ul>
+          <li>공통 컴포넌트 작업</li>
+          <li>사용자 화면 컴포넌트 작업</li>
+          <li>메인 피드 리스트 출력 데이터 호출</li>
+          <li>피드 작성 기능 구현</li>
+          <li>피드 상세페이지 데이터 호출</li>
+          <li>피드 수정 기능 구현</li>
+          <li>피드 삭제 기능 구현</li>
+          <li>좋아요 기능 구현</li>
+          <li>댓글/대댓글 등록 기능 구현</li>
+          <li>피드/댓글 신고 기능 구현</li>
+        </ul>
       </>
     ),
   },
   {
-    posNm: `Publishing`,
+    posNm: `Development`,
     proNm: `식권나라`,
     startDt: `2024.01`,
     endDt: `2024.03`,
-    useLaun: `HTML5, CSS3, Javascript, jQuery`,
+    useLaun: `React Native`,
     devOs: `PC Web | Android | iOS`,
     clientNm: `BGF Networks`,
-    member: 5,
+    member: "Development 5",
     contribRate: 10,
     role: "pe",
     proInter: <>식권 플랫폼 중계 및 복지 포인트 어플리케이션</>,
+    url: [
+      {
+        name: "Google Play",
+        url: "https://play.google.com/store/apps/details?id=com.mealticket.app.aos&hl=ko",
+      },
+      {
+        name: "App Store",
+        url: "https://apps.apple.com/kr/app/%EC%8B%9D%EA%B6%8C%EB%82%98%EB%9D%BC/id6477905499",
+      },
+    ],
     intoTxt: (
       <>
-        <p>기존 플랫폼 기능 추가 및 개선</p>
+        <strong>주요 작업</strong>
         <ul>
           <li>송금하기</li>
           <li>최근 검색한 친구 목록</li>
@@ -218,7 +229,7 @@ export const ProjectData: ProjectDataProps[] = [
     useLaun: `Javascript`,
     devOs: `PC Web`,
     clientNm: `CGV`,
-    member: 13,
+    member: "Team 13 / Publishing 1",
     contribRate: 100,
     role: "pe",
     proInter: (
@@ -231,8 +242,11 @@ export const ProjectData: ProjectDataProps[] = [
     ),
     intoTxt: (
       <>
-        <p>PC Web 환경 단독 담당</p>
-        <p>모바일 또는 크로스 플랫폼은 담당 업무 범위 내 포함 X</p>
+        <p>
+          <strong className="ut-font-bold">PC Web 환경 단독 담당</strong>
+          <br />
+          모바일 또는 크로스 플랫폼은 담당 업무 범위 내 포함 X
+        </p>
         <br />
         <strong>주요 작업</strong>
         <ul>
@@ -244,6 +258,7 @@ export const ProjectData: ProjectDataProps[] = [
         </ul>
       </>
     ),
+    images: ["/img/visual/visual-cgv.png"],
   },
   {
     posNm: `Publishing`,
@@ -255,7 +270,7 @@ export const ProjectData: ProjectDataProps[] = [
     contribRate: 50,
     role: "pe",
     clientNm: `신한은행`,
-    member: 2,
+    member: "Team 14 / Publishing 2",
     proInter: (
       <>
         신한은행 대환대출 서비스 신규 개발
@@ -265,7 +280,7 @@ export const ProjectData: ProjectDataProps[] = [
     ),
     intoTxt: (
       <>
-        <p>기존 신한은행 앱(하이브리드) 운영 서비스 고도화</p>
+        <strong>주요 작업</strong>
         <ul>
           <li>사용자 화면 퍼블리싱</li>
           <li>
@@ -276,6 +291,10 @@ export const ProjectData: ProjectDataProps[] = [
         </ul>
       </>
     ),
+    images: [
+      "/img/visual/visual-shinhan01.png",
+      "/img/visual/visual-shinhan02.png",
+    ],
   },
   {
     posNm: `Publishing`,
@@ -287,11 +306,21 @@ export const ProjectData: ProjectDataProps[] = [
     contribRate: 100,
     role: "pe",
     clientNm: `LG HelloRental`,
-    member: 2,
+    member: "Team 2 / Publishing 1",
     proInter: <>가전제품 렌탈 서비스 홈페이지 운영 및 고도화</>,
+    url: [
+      {
+        name: "메인페이지",
+        url: "https://rental.lghellovision.net/main/detail",
+      },
+      {
+        name: "구매가이드",
+        url: "https://rental.lghellovision.net/smartGuide/list",
+      },
+    ],
     intoTxt: (
       <>
-        <strong>고도화 작업</strong>
+        <strong>주요 작업</strong>
         <ul>
           <li>퍼블리싱(MO/PC반응형)</li>
           <li>
@@ -306,6 +335,7 @@ export const ProjectData: ProjectDataProps[] = [
         <p>상기 내용 외 기본 운영 업무 담당</p>
       </>
     ),
+    images: ["/img/visual/visual-lg-pc03.png"],
   },
   {
     posNm: `Publishing`,
@@ -317,10 +347,14 @@ export const ProjectData: ProjectDataProps[] = [
     contribRate: 60,
     role: "pe",
     clientNm: `BGF Networks`,
-    member: 4,
+    member: "Team 7 / Publishing 1",
     proInter: <>CU POST 전체 리뉴얼 프로젝트</>,
+    url: [
+      { name: "CU POST", url: "https://www.cupost.co.kr/postbox/main.cupost" },
+    ],
     intoTxt: (
       <>
+        <strong>주요 작업</strong>
         <ul>
           <li>모바일 사용자 화면 퍼블리싱</li>
           <li>PC 사용자 화면 퍼블리싱</li>
@@ -334,5 +368,6 @@ export const ProjectData: ProjectDataProps[] = [
         </ul>
       </>
     ),
+    images: ["/img/visual/visual-cu-mo.png", "/img/visual/visual-cu-web.png"],
   },
 ];
