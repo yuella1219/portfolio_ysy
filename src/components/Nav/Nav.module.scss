@@ -4,7 +4,7 @@ $nav-scroll-padding: calc(var(--spacing-base-x) + var(--spacing-4));
 
 .root {
   position: absolute;
-  top: -0;
+  top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
@@ -15,7 +15,7 @@ $nav-scroll-padding: calc(var(--spacing-base-x) + var(--spacing-4));
   transition: height var(--transition-nav) var(--ease-default);
 
   &.open {
-    height: 100%;
+    height: calc(var(--layout-vh, 1vh) * 100);
   }
 }
 
